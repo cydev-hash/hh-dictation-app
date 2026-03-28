@@ -311,7 +311,8 @@
             </div>
         </div>
         <div class="card manage-section">
-            <div class="export-area">
+            <div class="export-area" style="flex-wrap:wrap">
+                <button onclick="retranslateAll()" style="flex-basis:100%;background:var(--primary);color:#fff;border-color:var(--primary)">🔄 Re-translate All (AI)</button>
                 <button onclick="exportWords()">📤 Export JSON</button>
                 <button onclick="document.getElementById('import-file').click()">📥 Import JSON</button>
                 <input type="file" id="import-file" accept=".json" style="display:none" onchange="importWords(event)">
@@ -694,6 +695,31 @@ For proper nouns/places: related items in same category. Keep it simple for Prim
         renderManageList();
         textarea.value = '';
         toast(`✅ Added ${lines.length} words`);
+    }
+
+    async function retranslateAll() {
+        if (!apiKey) { toast('請先設定 API Key','error'); return; }
+        const needTranslation = words.filter(w => !w.zh || w.zh === '' || w.zh === '?');
+        const count = needTranslation.length || words.length;
+        if (!confirm(`Re-translate ${count} words using ${aiProvider === 'groq' ? 'Groq' : 'Gemini'}?`)) return;
+        toast(`⏳ Translating ${count} words...`, 'info');
+        let done = 0;
+        for (let i = 0; i < words.length; i++) {
+            if (!words[i].zh || words[i].zh === '' || words[i].zh === '?' || words[i].emoji === '📝') {
+                const t = await translateWord(words[i].en);
+                if (t.zh) words[i].zh = t.zh;
+                if (t.emoji && t.emoji !== '📝') words[i].emoji = t.emoji;
+                done++;
+                if (done % 3 === 0) {
+                    saveWords();
+                    renderManageList();
+                }
+            }
+        }
+        saveWords();
+        renderManageList();
+        renderPractice();
+        toast(`✅ Translated ${done} words`);
     }
 
     function deleteWord(idx) {

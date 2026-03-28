@@ -272,12 +272,21 @@
     <section id="manage-view" class="view">
         <div class="card manage-section">
             <div class="api-key-area">
-                <div class="section-title">🔑 Gemini API Key</div>
+                <div class="section-title">🤖 AI Provider</div>
+                <div style="display:flex;gap:8px;margin-bottom:12px">
+                    <label style="flex:1;display:flex;align-items:center;gap:6px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:13px;transition:all 0.2s" id="label-gemini">
+                        <input type="radio" name="provider" value="gemini" onchange="setProvider('gemini')" id="radio-gemini"> Gemini
+                    </label>
+                    <label style="flex:1;display:flex;align-items:center;gap:6px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:13px;transition:all 0.2s" id="label-groq">
+                        <input type="radio" name="provider" value="groq" onchange="setProvider('groq')" id="radio-groq"> Groq
+                    </label>
+                </div>
+                <div class="section-title" style="font-size:13px">🔑 API Key</div>
                 <div class="api-key-row">
                     <input type="password" id="api-key-input" placeholder="Paste your API key here...">
                     <button onclick="saveApiKey()">Save</button>
                 </div>
-                <div class="api-note">💡 Get a free key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>. Stored in your browser only.</div>
+                <div class="api-note" id="api-note">💡 Get a free key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a> (Gemini) or <a href="https://console.groq.com/keys" target="_blank">Groq Console</a>. Stored in your browser only.</div>
             </div>
         </div>
         <div class="card manage-section">
@@ -327,7 +336,7 @@
 
     <script>
     /* ===== State ===== */
-    const STORE = { WORDS:'hh_words', KEY:'hh_api_key' };
+    const STORE = { WORDS:'hh_words', KEY:'hh_api_key', PROVIDER:'hh_provider' };
     const DEFAULT_WORDS = [
         {en:"Witness",zh:"證人",emoji:"⚖️"},{en:"Burglar",zh:"竊賊",emoji:"🥷"},
         {en:"Victim",zh:"受害者",emoji:"😨"},{en:"Security guard",zh:"保安人員",emoji:"👮"},
@@ -338,12 +347,35 @@
     let words = JSON.parse(localStorage.getItem(STORE.WORDS)) || [...DEFAULT_WORDS];
     let currentIdx = 0;
     let apiKey = localStorage.getItem(STORE.KEY) || '';
+    let aiProvider = localStorage.getItem(STORE.PROVIDER) || 'gemini';
 
     /* ===== Init ===== */
     function init() {
         document.getElementById('api-key-input').value = apiKey ? '••••••••' : '';
+        document.getElementById('radio-' + aiProvider).checked = true;
+        updateProviderUI();
         renderPractice();
         renderManageList();
+    }
+
+    function setProvider(p) {
+        aiProvider = p;
+        localStorage.setItem(STORE.PROVIDER, p);
+        // Clear saved key when switching providers
+        apiKey = '';
+        localStorage.removeItem(STORE.KEY);
+        document.getElementById('api-key-input').value = '';
+        updateProviderUI();
+        toast('Switched to ' + (p === 'gemini' ? 'Gemini' : 'Groq'), 'info');
+    }
+
+    function updateProviderUI() {
+        const lg = document.getElementById('label-gemini');
+        const lr = document.getElementById('label-groq');
+        lg.style.borderColor = aiProvider === 'gemini' ? 'var(--primary)' : 'var(--border)';
+        lg.style.background = aiProvider === 'gemini' ? '#eef2ff' : '#fff';
+        lr.style.borderColor = aiProvider === 'groq' ? 'var(--primary)' : 'var(--border)';
+        lr.style.background = aiProvider === 'groq' ? '#eef2ff' : '#fff';
     }
 
     /* ===== Navigation ===== */
@@ -546,7 +578,7 @@ For the English word/phrase "${w.en}", provide the following in valid JSON only 
 {"partOfSpeech":"noun/verb/adjective/etc","forms":[{"form":"variation","label":"e.g. past tense"}],"synonyms":[{"word":"syn","zh":"中文"}],"antonyms":[{"word":"ant","zh":"中文"}],"related":[{"word":"related","zh":"中文"}],"example":"Simple sentence","exampleZh":"中文翻譯"}
 For verbs: include past tense, past participle, present participle. For adjectives: comparative, superlative.
 For proper nouns/places: related items in same category. Keep it simple for Primary 5 level. 2-3 items each. Return ONLY valid JSON.`;
-            const data = await callGemini(prompt);
+            const data = await callAI(prompt);
             const parsed = JSON.parse(data.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim());
             words[idx].details = parsed;
             saveWords();
@@ -559,7 +591,12 @@ For proper nouns/places: related items in same category. Keep it simple for Prim
         if(spinEl) spinEl.style.display = 'none';
     }
 
-    /* ===== Gemini API ===== */
+    /* ===== AI API ===== */
+    async function callAI(prompt) {
+        if (aiProvider === 'groq') return callGroq(prompt);
+        return callGemini(prompt);
+    }
+
     async function callGemini(prompt) {
         const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
@@ -574,11 +611,33 @@ For proper nouns/places: related items in same category. Keep it simple for Prim
         return json.candidates?.[0]?.content?.parts?.[0]?.text || '';
     }
 
+    async function callGroq(prompt) {
+        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: 'llama-3.3-70b-versatile',
+                messages: [{role:'user', content:prompt}],
+                temperature: 0.3,
+                max_tokens: 1024
+            })
+        });
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.error?.message || 'Groq API error: ' + res.status);
+        }
+        const json = await res.json();
+        return json.choices?.[0]?.message?.content || '';
+    }
+
     async function translateWord(en) {
         if (!apiKey) return {zh:'',emoji:'📝'};
         const prompt = `Translate the English word "${en}" to Traditional Chinese (繁體中文). Also suggest one relevant emoji. Return ONLY valid JSON: {"zh":"中文翻譯","emoji":"🎯"}`;
         try {
-            const data = await callGemini(prompt);
+            const data = await callAI(prompt);
             return JSON.parse(data.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim());
         } catch(e) { console.error(e); return {zh:'',emoji:'📝'}; }
     }

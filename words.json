@@ -263,5 +263,10 @@
     "en": "successful",
     "zh": "成功的",
     "emoji": "🏆"
+  },
+  {
+    "en": "starred",
+    "zh": "評為滿分",
+    "emoji": "⭐️"
   }
 ]

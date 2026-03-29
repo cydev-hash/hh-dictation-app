@@ -2,7 +2,7 @@
   {
     "en": "expert",
     "zh": "專家",
-    "emoji": "👨"
+    "emoji": "💡"
   },
   {
     "en": "Steve Irwin",
@@ -37,7 +37,7 @@
   {
     "en": "Melbourne",
     "zh": "墨爾本",
-    "emoji": "🏙️"
+    "emoji": "🗺️"
   },
   {
     "en": "Queensland",
@@ -161,8 +161,8 @@
   },
   {
     "en": "great",
-    "zh": "",
-    "emoji": "📝"
+    "zh": "偉大",
+    "emoji": "👍"
   },
   {
     "en": "documentary",
@@ -268,5 +268,10 @@
     "en": "chest",
     "zh": "胸部",
     "emoji": "🏹"
+  },
+  {
+    "en": "successful",
+    "zh": "",
+    "emoji": "📝"
   }
 ]

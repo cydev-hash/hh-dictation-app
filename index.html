@@ -258,9 +258,10 @@
             const res = await fetch('/api/words', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password: adminPw, words })
+                body: JSON.stringify({ password: adminPw, action: 'verify' })
             });
-            if (res.ok) {
+            const data = await res.json();
+            if (res.ok && data.verified) {
                 isAdmin = true;
                 localStorage.setItem('hh_admin_pw', adminPw);
                 if (!silent) toast('✅ Admin login successful');
@@ -268,10 +269,10 @@
                 isAdmin = false;
                 adminPw = '';
                 localStorage.removeItem('hh_admin_pw');
-                if (!silent) toast('❌ Wrong password', 'error');
+                if (!silent) toast('❌ ' + (data.error || 'Login failed'), 'error');
             }
         } catch (e) {
-            if (!silent) toast('Connection error', 'error');
+            if (!silent) toast('Connection error: ' + e.message, 'error');
         }
         updateAdminUI();
     }

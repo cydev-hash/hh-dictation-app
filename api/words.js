@@ -51,12 +51,19 @@ export default async function handler(req, res) {
     }
   }
 
-  // POST: update word list (requires admin password)
+  // POST: update word list or verify admin
   if (req.method === 'POST') {
-    const { password, words } = req.body || {};
+    const { password, words, action } = req.body || {};
     if (password !== ADMIN_PW) {
       return res.status(401).json({ error: 'Wrong admin password' });
     }
+
+    // Verify-only mode: just check password
+    if (action === 'verify') {
+      return res.status(200).json({ ok: true, verified: true });
+    }
+
+    // Save mode: update words
     if (!Array.isArray(words)) {
       return res.status(400).json({ error: 'words must be an array' });
     }

@@ -65,6 +65,28 @@
         .funfact-related .fr-tag .fr-zh { font-weight:400; color:var(--text-3); font-size:10px; }
         .funfact-tip { margin-top:10px; padding:10px 12px; background:#fff; border-radius:8px; font-size:12px; color:var(--text-2); border-left:3px solid var(--success); }
         .funfact-loading { text-align:center; padding:12px; color:var(--text-3); font-size:12px; }
+
+        /* Pronunciation */
+        .pron-box { margin-top:14px; padding:16px; background:linear-gradient(135deg,#eff6ff,#eef2ff); border:1px solid #bfdbfe; border-radius:var(--r-sm); text-align:left; animation:fadeIn 0.4s ease; }
+        .pron-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+        .pron-header .pron-title { font-size:15px; font-weight:700; color:#1e40af; }
+        .pron-ipa { font-size:16px; color:#3b82f6; font-style:italic; }
+        .pron-phonetic { text-align:center; font-size:22px; font-weight:800; color:#1e40af; letter-spacing:3px; margin-bottom:12px; }
+        .pron-syllables { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:12px; }
+        .pron-syl { display:flex; flex-direction:column; align-items:center; padding:8px 14px; background:#fff; border:2px solid #93c5fd; border-radius:var(--r-sm); cursor:pointer; transition:all 0.2s; min-width:60px; }
+        .pron-syl:hover { background:#dbeafe; border-color:#3b82f6; transform:scale(1.05); }
+        .pron-syl .syl-text { font-size:18px; font-weight:700; color:#1e40af; }
+        .pron-syl .syl-sound { font-size:10px; color:var(--text-3); margin-top:4px; text-align:center; }
+        .pron-stress { font-size:12px; color:#3b82f6; text-align:center; margin-bottom:10px; font-weight:600; }
+        .pron-tips { margin-top:8px; }
+        .pron-tip-item { padding:8px 12px; background:#fff; border-radius:8px; margin-bottom:6px; font-size:12px; border-left:3px solid #3b82f6; }
+        .pron-tip-item .tip-zh { color:var(--text-3); font-size:11px; margin-top:2px; }
+        .pron-rhymes { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+        .pron-rhyme-tag { padding:4px 12px; background:#fff; border:1px solid #93c5fd; border-radius:14px; font-size:12px; color:#1e40af; cursor:pointer; font-weight:600; transition:all 0.2s; }
+        .pron-rhyme-tag:hover { background:#dbeafe; }
+        .pron-btn { display:inline-flex; align-items:center; gap:6px; background:#fff; border:1.5px solid #93c5fd; color:#1e40af; padding:7px 16px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; margin:0 4px; transition:all 0.2s; }
+        .pron-btn:hover { background:#dbeafe; }
+        .pron-btn.active { background:#3b82f6; color:#fff; border-color:#3b82f6; }
         .nav-buttons { display:flex; justify-content:space-between; padding:16px; background:#f8fafc; border-top:1px solid var(--border); }
         .nav-buttons button { padding:10px 24px; border-radius:var(--r-sm); font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; border:none; transition:all 0.2s; }
         .btn-prev { background:#fff; color:var(--text-2); border:1px solid var(--border)!important; }
@@ -387,6 +409,11 @@
             <div class="card-label">溫習生字</div>
             <div><div class="word-emoji">${w.emoji||'📝'}</div><div class="word-zh">${w.zh||'?'}</div></div>
             <button class="speak-btn" onclick="speak('${esc(w.en)}')">🔊 聽發音</button>
+            <div style="margin-bottom:16px">
+                <button class="pron-btn" onclick="loadPronunciation(${currentIdx})">📢 學發音</button>
+                <button class="pron-btn" onclick="slowSpeak('${esc(w.en)}')">🐢 慢讀</button>
+            </div>
+            <div id="pron-area"></div>
             <div class="input-area" id="input-area">${genInputs(w.en)}</div>
             <button class="hint-btn" onclick="giveHint()">💡 提示</button>
             <div id="success-msg" class="success-msg hidden">太棒了！答對了！ ✨</div>
@@ -506,7 +533,73 @@
         if (v) u.voice = v;
         speechSynthesis.speak(u);
     }
+
+    function slowSpeak(text) {
+        if (!window.speechSynthesis) return;
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US'; u.rate = 0.4; u.pitch = 1;
+        const v = speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
+        if (v) u.voice = v;
+        speechSynthesis.speak(u);
+    }
+
+    function speakSyllable(text) {
+        if (!window.speechSynthesis) return;
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US'; u.rate = 0.5;
+        const v = speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
+        if (v) u.voice = v;
+        speechSynthesis.speak(u);
+    }
+
     if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
+
+    async function loadPronunciation(idx) {
+        const area = document.getElementById('pron-area');
+        if (!area) return;
+        // Toggle off if already showing
+        if (area.innerHTML && !area.querySelector('.funfact-loading')) {
+            area.innerHTML = ''; return;
+        }
+        area.innerHTML = '<div class="funfact-loading"><span class="spinner dark"></span> 載入發音教學...</div>';
+        try {
+            const res = await fetch('/api/pronounce', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ word: words[idx].en })
+            });
+            if (!res.ok) throw new Error('API error');
+            const d = await res.json();
+            let html = `<div class="pron-box">`;
+            html += `<div class="pron-header"><span class="pron-title">📢 發音教學</span><span class="pron-ipa">${d.ipa||''}</span></div>`;
+            html += `<div class="pron-phonetic">${d.phonetic||''}</div>`;
+            if (d.syllables?.length) {
+                html += `<div class="pron-syllables">${d.syllables.map(s => 
+                    `<div class="pron-syl" onclick="speakSyllable('${esc(s.text)}')"><span class="syl-text">${s.text}</span><span class="syl-sound">${s.soundZh||s.sound||''}</span></div>`
+                ).join('<span style="color:#93c5fd;font-weight:700;align-self:center">+</span>')}</div>`;
+            }
+            if (d.stressZh || d.stress) {
+                html += `<div class="pron-stress">🔈 ${d.stressZh || d.stress}</div>`;
+            }
+            if (d.tips?.length) {
+                html += `<div class="pron-tips">${d.tips.map(t => 
+                    `<div class="pron-tip-item">💡 ${t.en}<div class="tip-zh">${t.zh||''}</div></div>`
+                ).join('')}</div>`;
+            }
+            if (d.rhymes?.length) {
+                html += `<div style="margin-top:10px;font-size:11px;color:var(--text-3);font-weight:600">🎵 押韻詞</div>`;
+                html += `<div class="pron-rhymes">${d.rhymes.map(r => 
+                    `<span class="pron-rhyme-tag" onclick="speak('${esc(r)}')">${r}</span>`
+                ).join('')}</div>`;
+            }
+            html += `</div>`;
+            area.innerHTML = html;
+        } catch (e) {
+            area.innerHTML = '';
+        }
+    }
 
     /* ===== Details ===== */
     function renderDetails() {

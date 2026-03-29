@@ -268,5 +268,10 @@
     "en": "illegal",
     "zh": "違法",
     "emoji": "🚫"
+  },
+  {
+    "en": "renamed",
+    "zh": "重新命名",
+    "emoji": "📝"
   }
 ]

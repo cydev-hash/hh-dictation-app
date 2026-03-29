@@ -627,6 +627,12 @@
         document.getElementById('test-history-card').style.display = 'none';
         testTimer = setInterval(() => {
             testSeconds++;
+            if (testSeconds >= 1800) {
+                clearInterval(testTimer);
+                toast('⏰ 時間到！30分鐘已過', 'error');
+                finishTest();
+                return;
+            }
             const el = document.getElementById('test-clock');
             if (el) el.textContent = formatTime(testSeconds);
         }, 1000);
@@ -634,6 +640,7 @@
     }
 
     function formatTime(s) {
+        if (s >= 1800) return '⏰ Over 30 mins';
         const m = Math.floor(s / 60);
         return `${String(m).padStart(2,'0')}:${String(s % 60).padStart(2,'0')}`;
     }

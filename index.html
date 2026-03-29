@@ -124,6 +124,45 @@
         .spinner.dark { border-color:rgba(0,0,0,0.1); border-top-color:var(--primary); }
         @keyframes spin { to{transform:rotate(360deg)} }
         .loading-overlay { display:flex; align-items:center; justify-content:center; padding:60px; color:var(--text-3); gap:10px; font-size:14px; }
+
+        /* Test View */
+        .test-start { padding:40px 20px; text-align:center; }
+        .test-start h2 { font-size:22px; margin-bottom:8px; }
+        .test-start p { color:var(--text-2); font-size:13px; margin-bottom:24px; }
+        .test-start-btn { padding:14px 40px; background:linear-gradient(135deg,#ef4444,#dc2626); color:#fff; border:none; border-radius:var(--r-sm); font-size:16px; font-weight:700; cursor:pointer; font-family:inherit; box-shadow:0 4px 16px rgba(239,68,68,0.3); transition:all 0.2s; }
+        .test-start-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(239,68,68,0.4); }
+        .test-timer { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:linear-gradient(135deg,#fef2f2,#fff1f2); border-bottom:1px solid #fecaca; }
+        .test-timer .timer-clock { font-size:18px; font-weight:800; color:#dc2626; font-variant-numeric:tabular-nums; }
+        .test-timer .timer-progress { font-size:12px; font-weight:700; color:#ef4444; }
+        .test-submit-btn { padding:10px 28px; background:linear-gradient(135deg,#ef4444,#dc2626); color:#fff; border:none; border-radius:var(--r-sm); font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; }
+        .test-skip-btn { padding:10px 28px; background:#fff; color:var(--text-2); border:1px solid var(--border); border-radius:var(--r-sm); font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; }
+        .result-score { text-align:center; padding:20px; }
+        .result-score .big-score { font-size:56px; font-weight:800; }
+        .result-score .big-score.perfect { color:var(--success); }
+        .result-score .big-score.good { color:#f59e0b; }
+        .result-score .big-score.poor { color:var(--danger); }
+        .result-score .score-label { font-size:14px; color:var(--text-2); margin-top:4px; }
+        .result-stat { display:flex; gap:8px; padding:0 20px 16px; }
+        .result-stat .stat-box { flex:1; text-align:center; padding:12px; background:#f8fafc; border-radius:var(--r-sm); }
+        .result-stat .stat-val { font-size:20px; font-weight:800; color:var(--text); }
+        .result-stat .stat-lbl { font-size:10px; color:var(--text-3); font-weight:600; margin-top:2px; }
+        .error-item { padding:12px 20px; border-top:1px solid var(--border); }
+        .error-word-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+        .error-word-row .err-zh { font-size:12px; color:var(--text-3); }
+        .error-letters { display:flex; gap:3px; flex-wrap:wrap; }
+        .error-letters .el { width:28px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:16px; font-weight:700; }
+        .error-letters .el.ok { background:#dcfce7; color:#166534; }
+        .error-letters .el.wrong { background:#fef2f2; color:#dc2626; text-decoration:line-through; }
+        .error-letters .el.correct-show { background:#dbeafe; color:#1e40af; font-size:10px; }
+        .error-letters .el.space { width:12px; }
+        .history-item { padding:12px 20px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+        .history-item .hi-date { font-size:12px; color:var(--text-2); }
+        .history-item .hi-score { font-weight:700; font-size:14px; }
+        .history-item .hi-score.perfect { color:var(--success); }
+        .history-item .hi-score.good { color:#f59e0b; }
+        .history-item .hi-score.poor { color:var(--danger); }
+        .history-item .hi-time { font-size:11px; color:var(--text-3); }
+
         @media(min-width:640px) { .letter-input { width:44px; height:54px; font-size:24px; } .word-zh { font-size:36px; } }
     </style>
 </head>
@@ -194,8 +233,17 @@
         </div>
     </section>
 
+    <section id="test-view" class="view">
+        <div id="test-content" class="card"></div>
+        <div id="test-history-card" class="card manage-section" style="margin-top:16px">
+            <div style="padding:16px 16px 8px"><div class="section-title">📊 默書記錄</div></div>
+            <div id="test-history-list"></div>
+        </div>
+    </section>
+
     <nav class="bottom-nav">
         <button class="nav-btn active" data-view="practice" onclick="switchView('practice')"><span class="icon">📝</span><span>練習</span></button>
+        <button class="nav-btn" data-view="test" onclick="switchView('test')"><span class="icon">📋</span><span>默書</span></button>
         <button class="nav-btn" data-view="details" onclick="switchView('details')"><span class="icon">📖</span><span>詞彙</span></button>
         <button class="nav-btn" data-view="manage" onclick="switchView('manage')"><span class="icon">⚙️</span><span>管理</span></button>
     </nav>
@@ -207,6 +255,14 @@
     let currentIdx = 0;
     let adminPw = localStorage.getItem('hh_admin_pw') || '';
     let isAdmin = false;
+
+    /* Test state */
+    let testActive = false;
+    let testIdx = 0;
+    let testAnswers = [];
+    let testTimer = null;
+    let testSeconds = 0;
+    let testHistory = JSON.parse(localStorage.getItem('hh_test_history') || '[]');
 
     /* ===== Init ===== */
     async function init() {
@@ -302,6 +358,7 @@
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.view === name));
         if (name === 'details') renderDetails();
         if (name === 'manage') renderManageList();
+        if (name === 'test' && !testActive) renderTestStart();
     }
 
     /* ===== Practice ===== */
@@ -548,6 +605,177 @@
             } catch (err) { toast('Import failed: ' + err.message, 'error'); }
         };
         reader.readAsText(file); e.target.value = '';
+    }
+
+    /* ===== Dictation Test ===== */
+    function renderTestStart() {
+        document.getElementById('test-history-card').style.display = '';
+        renderTestHistory();
+        document.getElementById('test-content').innerHTML = `
+            <div class="test-start">
+                <h2>📋 正式默書</h2>
+                <p>共 ${words.length} 個生字<br>沒有提示，計時計分</p>
+                <button class="test-start-btn" onclick="startTest()" ${words.length===0?'disabled':''}>🚀 開始默書</button>
+            </div>`;
+    }
+
+    function startTest() {
+        testActive = true;
+        testIdx = 0;
+        testAnswers = words.map(() => ({ typed: '', correct: false }));
+        testSeconds = 0;
+        document.getElementById('test-history-card').style.display = 'none';
+        testTimer = setInterval(() => {
+            testSeconds++;
+            const el = document.getElementById('test-clock');
+            if (el) el.textContent = formatTime(testSeconds);
+        }, 1000);
+        renderTestWord();
+    }
+
+    function formatTime(s) {
+        const m = Math.floor(s / 60);
+        return `${String(m).padStart(2,'0')}:${String(s % 60).padStart(2,'0')}`;
+    }
+
+    function renderTestWord() {
+        if (testIdx >= words.length) { finishTest(); return; }
+        const w = words[testIdx];
+        document.getElementById('test-content').innerHTML = `
+            <div class="test-timer">
+                <span class="timer-progress">第 ${testIdx+1} / ${words.length} 題</span>
+                <span class="timer-clock" id="test-clock">⏱ ${formatTime(testSeconds)}</span>
+            </div>
+            <div class="word-card-inner">
+                <div class="card-label" style="color:#dc2626">正式默書</div>
+                <div><div class="word-emoji">${w.emoji||'📝'}</div><div class="word-zh">${w.zh||'?'}</div></div>
+                <button class="speak-btn" style="background:linear-gradient(135deg,#ef4444,#dc2626)" onclick="speak('${esc(w.en)}')">🔊 聽發音</button>
+                <div class="input-area" id="test-input-area">${genTestInputs(w.en)}</div>
+            </div>
+            <div class="nav-buttons" style="border-top:1px solid var(--border)">
+                <button class="test-skip-btn" onclick="skipTestWord()">跳過 ▶</button>
+                <button class="test-submit-btn" onclick="submitTestWord()">提交 ✓</button>
+            </div>`;
+        setTimeout(() => { const f = document.querySelector('#test-input-area input'); if(f) f.focus(); }, 200);
+    }
+
+    function genTestInputs(word) {
+        return word.split('').map(c => c === ' '
+            ? '<div class="word-space"></div>'
+            : `<input type="text" maxlength="1" class="letter-input" data-letter="${c.toLowerCase()}" oninput="testCheckInput(this)" onkeydown="handleKey(event,this)" style="border-color:var(--border)">`
+        ).join('');
+    }
+
+    function testCheckInput(el) {
+        // No feedback in test mode - just auto-advance to next input
+        if (el.value) {
+            let next = el.nextElementSibling;
+            while(next && next.tagName !== 'INPUT') next = next.nextElementSibling;
+            if (next) next.focus();
+        }
+    }
+
+    function submitTestWord() {
+        const inputs = document.querySelectorAll('#test-input-area input');
+        const typed = [...inputs].map(i => i.value.toLowerCase() || '').join('');
+        const expected = words[testIdx].en.replace(/ /g, '').toLowerCase();
+        testAnswers[testIdx] = { typed, correct: typed === expected };
+        testIdx++;
+        renderTestWord();
+    }
+
+    function skipTestWord() {
+        testAnswers[testIdx] = { typed: '', correct: false };
+        testIdx++;
+        renderTestWord();
+    }
+
+    function finishTest() {
+        clearInterval(testTimer);
+        testActive = false;
+        const total = words.length;
+        const correct = testAnswers.filter(a => a.correct).length;
+        const pct = Math.round(correct / total * 100);
+        const scoreClass = pct === 100 ? 'perfect' : pct >= 60 ? 'good' : 'poor';
+
+        // Build error details
+        let errorsHtml = '';
+        const wrongWords = [];
+        words.forEach((w, i) => {
+            if (!testAnswers[i].correct) {
+                wrongWords.push(w.en);
+                const typed = testAnswers[i].typed;
+                const letters = w.en.replace(/ /g, '').toLowerCase().split('');
+                const typedArr = typed.split('');
+                let letterHtml = '';
+                let charIdx = 0;
+                for (const c of w.en) {
+                    if (c === ' ') {
+                        letterHtml += '<span class="el space"></span>';
+                    } else {
+                        const t = typedArr[charIdx] || '';
+                        const isOk = t === c.toLowerCase();
+                        letterHtml += `<span class="el ${isOk ? 'ok' : 'wrong'}">${t || '?'}</span>`;
+                        if (!isOk) letterHtml += `<span class="el correct-show">${c}</span>`;
+                        charIdx++;
+                    }
+                }
+                errorsHtml += `<div class="error-item">
+                    <div class="error-word-row">
+                        <strong>${w.en}</strong>
+                        <span class="err-zh">${w.zh||''}</span>
+                    </div>
+                    <div class="error-letters">${letterHtml}</div>
+                </div>`;
+            }
+        });
+
+        // Save to history
+        const record = {
+            date: new Date().toISOString(),
+            total, correct, pct,
+            time: testSeconds,
+            wrongWords
+        };
+        testHistory.unshift(record);
+        if (testHistory.length > 50) testHistory = testHistory.slice(0, 50);
+        localStorage.setItem('hh_test_history', JSON.stringify(testHistory));
+
+        document.getElementById('test-content').innerHTML = `
+            <div class="result-score" style="background:linear-gradient(135deg,#fef2f2,#fff1f2);padding:28px 20px">
+                <div style="font-size:14px;font-weight:700;color:#dc2626;margin-bottom:8px">📋 默書成績</div>
+                <div class="big-score ${scoreClass}">${pct}%</div>
+                <div class="score-label">${correct} / ${total} 正確</div>
+            </div>
+            <div class="result-stat">
+                <div class="stat-box"><div class="stat-val" style="color:var(--success)">${correct}</div><div class="stat-lbl">✅ 正確</div></div>
+                <div class="stat-box"><div class="stat-val" style="color:var(--danger)">${total - correct}</div><div class="stat-lbl">❌ 錯誤</div></div>
+                <div class="stat-box"><div class="stat-val">${formatTime(testSeconds)}</div><div class="stat-lbl">⏱ 用時</div></div>
+            </div>
+            ${errorsHtml ? `<div style="padding:12px 20px;background:#f8fafc;border-top:1px solid var(--border)"><h3 style="font-size:13px;font-weight:700;color:var(--danger)">❌ 錯誤分析 (${total - correct} 個)</h3></div>${errorsHtml}` : '<div style="padding:24px;text-align:center;color:var(--success);font-weight:700;font-size:18px">🎉 全部正確！太棒了！</div>'}
+            <div style="padding:16px;text-align:center;border-top:1px solid var(--border)">
+                <button class="restart-btn" onclick="renderTestStart()" style="background:linear-gradient(135deg,#ef4444,#dc2626)">📋 再做一次</button>
+                <button class="restart-btn" onclick="switchView('practice')" style="background:var(--primary);margin-left:8px">📝 去練習</button>
+            </div>`;
+        document.getElementById('test-history-card').style.display = '';
+        renderTestHistory();
+    }
+
+    function renderTestHistory() {
+        const list = document.getElementById('test-history-list');
+        if (!testHistory.length) {
+            list.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-3);font-size:13px">尚無默書記錄</div>';
+            return;
+        }
+        list.innerHTML = testHistory.slice(0, 20).map(h => {
+            const d = new Date(h.date);
+            const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+            const cls = h.pct === 100 ? 'perfect' : h.pct >= 60 ? 'good' : 'poor';
+            return `<div class="history-item">
+                <div><div class="hi-date">${dateStr}</div><div class="hi-time">⏱ ${formatTime(h.time)} · ${h.total} 字</div></div>
+                <div class="hi-score ${cls}">${h.pct}% (${h.correct}/${h.total})</div>
+            </div>`;
+        }).join('');
     }
 
     /* ===== Toast ===== */

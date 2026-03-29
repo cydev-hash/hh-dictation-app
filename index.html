@@ -10,136 +10,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-light: #a5b4fc;
-            --primary-dark: #4f46e5;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
+            --primary: #6366f1; --primary-light: #a5b4fc; --primary-dark: #4f46e5;
+            --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
             --bg: linear-gradient(145deg, #eef2ff 0%, #faf5ff 50%, #f0fdf4 100%);
-            --card: #ffffff;
-            --text: #1e293b;
-            --text-2: #64748b;
-            --text-3: #94a3b8;
-            --border: #e2e8f0;
-            --r: 16px;
-            --r-sm: 10px;
+            --card: #ffffff; --text: #1e293b; --text-2: #64748b; --text-3: #94a3b8;
+            --border: #e2e8f0; --r: 16px; --r-sm: 10px;
             --shadow: 0 4px 24px rgba(99,102,241,0.08);
-            --shadow-lg: 0 8px 40px rgba(99,102,241,0.12);
         }
         * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Inter', -apple-system, 'Microsoft JhengHei', sans-serif;
-            background: var(--bg);
-            min-height: 100vh;
-            color: var(--text);
-            padding-bottom: 80px;
-        }
-        .app-header {
-            text-align: center;
-            padding: 20px 16px 12px;
-        }
-        .app-header h1 {
-            font-size: 18px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .app-header p { font-size: 11px; color: var(--text-3); margin-top: 2px; }
-
-        /* Views */
-        .view { display: none; max-width: 600px; margin: 0 auto; padding: 0 12px; }
-        .view.active { display: block; animation: fadeIn 0.3s ease; }
+        body { font-family:'Inter',-apple-system,'Microsoft JhengHei',sans-serif; background:var(--bg); min-height:100vh; color:var(--text); padding-bottom:80px; }
+        .app-header { text-align:center; padding:20px 16px 12px; }
+        .app-header h1 { font-size:18px; font-weight:700; background:linear-gradient(135deg,var(--primary),#a855f7); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .app-header p { font-size:11px; color:var(--text-3); margin-top:2px; }
+        .view { display:none; max-width:600px; margin:0 auto; padding:0 12px; }
+        .view.active { display:block; animation:fadeIn 0.3s ease; }
         @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-
-        /* Bottom Nav */
-        .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--border);
-            display: flex; justify-content: center; gap: 0;
-            padding: 8px 0 max(8px, env(safe-area-inset-bottom));
-            z-index: 100;
-        }
-        .nav-btn {
-            flex: 1; max-width: 120px;
-            display: flex; flex-direction: column; align-items: center; gap: 2px;
-            background: none; border: none; padding: 6px 12px;
-            font-size: 10px; color: var(--text-3); cursor: pointer;
-            font-family: inherit; font-weight: 600; transition: all 0.2s;
-        }
-        .nav-btn .icon { font-size: 22px; }
-        .nav-btn.active { color: var(--primary); }
-        .nav-btn.active .icon { transform: scale(1.15); }
-
-        /* Card */
-        .card {
-            background: var(--card);
-            border-radius: var(--r);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(99,102,241,0.08);
-            overflow: hidden;
-        }
-
-        /* Progress */
-        .progress-section { padding: 16px; background: linear-gradient(135deg,#eef2ff,#f5f3ff); border-bottom: 1px solid var(--border); }
+        .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:rgba(255,255,255,0.92); backdrop-filter:blur(20px); border-top:1px solid var(--border); display:flex; justify-content:center; padding:8px 0 max(8px,env(safe-area-inset-bottom)); z-index:100; }
+        .nav-btn { flex:1; max-width:120px; display:flex; flex-direction:column; align-items:center; gap:2px; background:none; border:none; padding:6px 12px; font-size:10px; color:var(--text-3); cursor:pointer; font-family:inherit; font-weight:600; transition:all 0.2s; }
+        .nav-btn .icon { font-size:22px; }
+        .nav-btn.active { color:var(--primary); }
+        .nav-btn.active .icon { transform:scale(1.15); }
+        .card { background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid rgba(99,102,241,0.08); overflow:hidden; }
+        .progress-section { padding:16px; background:linear-gradient(135deg,#eef2ff,#f5f3ff); border-bottom:1px solid var(--border); }
         .progress-info { display:flex; justify-content:space-between; margin-bottom:6px; }
         .progress-info span { font-size:11px; font-weight:700; color:var(--primary); }
         .progress-track { height:5px; background:#e0e7ff; border-radius:10px; overflow:hidden; }
         .progress-fill { height:100%; background:linear-gradient(90deg,var(--primary),#a855f7); border-radius:10px; transition:width 0.5s ease; width:0%; }
-
-        /* Word Card */
-        .word-card-inner { padding: 32px 20px; text-align: center; }
+        .word-card-inner { padding:32px 20px; text-align:center; }
         .card-label { font-size:12px; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
-        .word-hint { margin-bottom: 20px; }
-        .word-emoji { font-size: 48px; margin-bottom: 8px; }
-        .word-zh { font-size: 32px; font-weight: 800; color: var(--text); }
-        .speak-btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff; border: none; padding: 10px 24px; border-radius: 50px;
-            font-size: 14px; font-weight: 600; cursor: pointer;
-            font-family: inherit; margin-bottom: 24px;
-            box-shadow: 0 4px 16px rgba(99,102,241,0.3);
-            transition: all 0.2s;
-        }
-        .speak-btn:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(99,102,241,0.4); }
+        .word-emoji { font-size:48px; margin-bottom:8px; }
+        .word-zh { font-size:32px; font-weight:800; color:var(--text); }
+        .speak-btn { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; border:none; padding:10px 24px; border-radius:50px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; margin:20px 0 24px; box-shadow:0 4px 16px rgba(99,102,241,0.3); transition:all 0.2s; }
+        .speak-btn:hover { transform:translateY(-1px); }
         .speak-btn:active { transform:scale(0.97); }
-
-        /* Letter Inputs */
         .input-area { display:flex; flex-wrap:wrap; justify-content:center; gap:4px; margin-bottom:20px; }
-        .letter-input {
-            width: 38px; height: 48px; text-align: center;
-            font-size: 22px; font-weight: 700; font-family: 'Inter', monospace;
-            border: 2.5px solid var(--border); border-radius: var(--r-sm);
-            background: #fff; color: var(--text);
-            text-transform: lowercase; transition: all 0.2s;
-            -webkit-appearance: none; outline: none;
-        }
+        .letter-input { width:38px; height:48px; text-align:center; font-size:22px; font-weight:700; font-family:'Inter',monospace; border:2.5px solid var(--border); border-radius:var(--r-sm); background:#fff; color:var(--text); text-transform:lowercase; transition:all 0.2s; -webkit-appearance:none; appearance:none; outline:none; }
         .letter-input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(99,102,241,0.15); }
         .letter-input.correct { background:#fef3c7; border-color:#f59e0b; color:#92400e; }
-        .word-space { width: 16px; }
-        .hint-btn {
-            background:none; border:1px dashed var(--border); color:var(--text-3);
-            padding:6px 16px; border-radius:20px; font-size:12px; cursor:pointer;
-            font-family:inherit; transition:all 0.2s;
-        }
+        .word-space { width:16px; }
+        .hint-btn { background:none; border:1px dashed var(--border); color:var(--text-3); padding:6px 16px; border-radius:20px; font-size:12px; cursor:pointer; font-family:inherit; transition:all 0.2s; }
         .hint-btn:hover { border-color:var(--warning); color:var(--warning); }
-        .success-msg {
-            color:var(--success); font-weight:700; font-size:18px;
-            animation: bounceIn 0.5s ease;
-        }
+        .success-msg { color:var(--success); font-weight:700; font-size:18px; animation:bounceIn 0.5s ease; }
         @keyframes bounceIn { 0%{transform:scale(0.5);opacity:0} 60%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
         .hidden { display:none!important; }
-
-        /* Nav Buttons */
         .nav-buttons { display:flex; justify-content:space-between; padding:16px; background:#f8fafc; border-top:1px solid var(--border); }
-        .nav-buttons button {
-            padding:10px 24px; border-radius:var(--r-sm); font-size:13px;
-            font-weight:600; cursor:pointer; font-family:inherit; border:none; transition:all 0.2s;
-        }
+        .nav-buttons button { padding:10px 24px; border-radius:var(--r-sm); font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; border:none; transition:all 0.2s; }
         .btn-prev { background:#fff; color:var(--text-2); border:1px solid var(--border)!important; }
         .btn-prev:hover { background:#f1f5f9; }
         .btn-prev:disabled { opacity:0.3; cursor:default; }
@@ -149,54 +64,42 @@
         .completion-screen h2 { font-size:28px; margin-bottom:12px; }
         .completion-screen p { color:var(--text-2); }
         .restart-btn { margin-top:20px; padding:12px 32px; background:var(--primary); color:#fff; border:none; border-radius:var(--r-sm); font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; }
-
-        /* Details View */
         .details-card { margin-bottom:16px; }
         .details-header { padding:24px 20px; text-align:center; background:linear-gradient(135deg,#eef2ff,#faf5ff); }
         .details-header .emoji { font-size:48px; }
-        .details-header .en { font-size:28px; font-weight:800; color:var(--text); margin:4px 0; }
+        .details-header .en { font-size:28px; font-weight:800; color:var(--text); margin:4px 0; cursor:pointer; }
         .details-header .zh { font-size:18px; color:var(--text-2); }
         .details-header .pos { display:inline-block; margin-top:8px; padding:4px 14px; background:var(--primary); color:#fff; border-radius:20px; font-size:11px; font-weight:600; }
         .details-section { padding:16px 20px; border-top:1px solid var(--border); }
-        .details-section h3 { font-size:13px; font-weight:700; color:var(--primary); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
-        .detail-tag {
-            display:inline-flex; align-items:center; gap:4px;
-            padding:6px 14px; background:#f1f5f9; border-radius:20px;
-            font-size:13px; color:var(--text); margin:3px;
-            cursor:pointer; transition:all 0.2s; border:1px solid transparent;
-        }
+        .details-section h3 { font-size:13px; font-weight:700; color:var(--primary); margin-bottom:10px; }
+        .detail-tag { display:inline-flex; align-items:center; gap:4px; padding:6px 14px; background:#f1f5f9; border-radius:20px; font-size:13px; color:var(--text); margin:3px; cursor:pointer; transition:all 0.2s; border:1px solid transparent; }
         .detail-tag:hover { background:#e0e7ff; border-color:var(--primary-light); }
         .detail-tag .tag-zh { font-size:11px; color:var(--text-3); }
         .detail-example { background:#f8fafc; padding:12px 16px; border-radius:var(--r-sm); font-size:14px; line-height:1.6; }
         .detail-example .example-zh { color:var(--text-2); font-size:13px; margin-top:4px; }
         .details-nav { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#f8fafc; border-top:1px solid var(--border); }
-        .details-nav button { padding:8px 20px; border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; border:1px solid var(--border); background:#fff; color:var(--text-2); transition:all 0.2s; }
-        .details-nav button:hover { background:#f1f5f9; }
+        .details-nav button { padding:8px 20px; border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; border:1px solid var(--border); background:#fff; color:var(--text-2); }
         .details-nav button:disabled { opacity:0.3; }
         .details-nav .counter { font-size:12px; color:var(--text-3); font-weight:600; }
         .fetch-btn { display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:8px 20px; background:#fff; border:1px dashed var(--primary-light); color:var(--primary); border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; }
         .fetch-btn:hover { background:#eef2ff; }
         .no-details { padding:40px 20px; text-align:center; color:var(--text-3); }
-
-        /* Manage View */
         .manage-section { margin-bottom:16px; }
         .manage-section .section-title { font-size:15px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
-        .api-key-area { padding:16px; }
-        .api-key-row { display:flex; gap:8px; }
-        .api-key-row input { flex:1; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--r-sm); font-size:13px; font-family:inherit; outline:none; }
-        .api-key-row input:focus { border-color:var(--primary); }
-        .api-key-row button { padding:10px 16px; background:var(--primary); color:#fff; border:none; border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; white-space:nowrap; }
-        .api-note { font-size:11px; color:var(--text-3); margin-top:8px; line-height:1.5; }
+        .manage-pad { padding:16px; }
+        .admin-row { display:flex; gap:8px; margin-bottom:8px; }
+        .admin-row input { flex:1; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--r-sm); font-size:13px; font-family:inherit; outline:none; }
+        .admin-row input:focus { border-color:var(--primary); }
+        .admin-row button { padding:10px 16px; background:var(--primary); color:#fff; border:none; border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; white-space:nowrap; }
+        .admin-note { font-size:11px; color:var(--text-3); line-height:1.5; }
+        .admin-badge { display:inline-block; padding:3px 10px; background:#dcfce7; color:#166534; border-radius:12px; font-size:11px; font-weight:600; }
         .word-list-area { max-height:400px; overflow-y:auto; }
-        .word-row {
-            display:flex; align-items:center; padding:10px 16px; border-bottom:1px solid #f1f5f9;
-            gap:8px; transition:background 0.15s;
-        }
+        .word-row { display:flex; align-items:center; padding:10px 16px; border-bottom:1px solid #f1f5f9; gap:8px; }
         .word-row:hover { background:#fafafe; }
-        .word-row .wr-en { flex:1; font-weight:600; font-size:14px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .word-row .wr-en { flex:1; font-weight:600; font-size:14px; }
         .word-row .wr-zh { color:var(--text-2); font-size:13px; min-width:60px; }
         .word-row .wr-em { font-size:20px; min-width:28px; text-align:center; }
-        .word-row .wr-del { background:none; border:none; color:var(--text-3); cursor:pointer; font-size:18px; padding:4px 8px; border-radius:6px; transition:all 0.15s; }
+        .word-row .wr-del { background:none; border:none; color:var(--text-3); cursor:pointer; font-size:18px; padding:4px 8px; border-radius:6px; }
         .word-row .wr-del:hover { background:#fef2f2; color:var(--danger); }
         .add-word-area { padding:16px; }
         .add-row { display:flex; gap:8px; margin-bottom:8px; }
@@ -207,34 +110,21 @@
         .batch-area textarea { width:100%; min-height:80px; padding:10px; border:1.5px solid var(--border); border-radius:var(--r-sm); font-size:13px; font-family:inherit; resize:vertical; outline:none; }
         .batch-area textarea:focus { border-color:var(--primary); }
         .batch-area button { margin-top:8px; width:100%; padding:10px; background:var(--primary); color:#fff; border:none; border-radius:var(--r-sm); font-size:13px; font-weight:600; cursor:pointer; font-family:inherit; }
-        .export-area { padding:16px; display:flex; gap:8px; }
-        .export-area button { flex:1; padding:10px; border:1.5px solid var(--border); background:#fff; border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-2); transition:all 0.15s; }
+        .export-area { padding:16px; display:flex; gap:8px; flex-wrap:wrap; }
+        .export-area button { flex:1; padding:10px; border:1.5px solid var(--border); background:#fff; border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-2); }
         .export-area button:hover { background:#f8fafc; border-color:var(--primary-light); }
         .word-count { text-align:center; padding:8px; font-size:11px; color:var(--text-3); background:#f8fafc; }
-
-        /* Toast */
-        .toast-container { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:1000; display:flex; flex-direction:column; gap:8px; }
-        .toast {
-            padding:12px 24px; border-radius:var(--r-sm);
-            font-size:13px; font-weight:600; color:#fff;
-            box-shadow:0 8px 24px rgba(0,0,0,0.15);
-            animation: toastIn 0.3s ease;
-            white-space:nowrap;
-        }
+        .toast-container { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:1000; display:flex; flex-direction:column; gap:8px; pointer-events:none; }
+        .toast { padding:12px 24px; border-radius:var(--r-sm); font-size:13px; font-weight:600; color:#fff; box-shadow:0 8px 24px rgba(0,0,0,0.15); animation:toastIn 0.3s ease; white-space:nowrap; }
         .toast.success { background:var(--success); }
         .toast.error { background:var(--danger); }
         .toast.info { background:var(--primary); }
         @keyframes toastIn { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
-
-        /* Loading Spinner */
         .spinner { display:inline-block; width:14px; height:14px; border:2px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 0.6s linear infinite; }
         .spinner.dark { border-color:rgba(0,0,0,0.1); border-top-color:var(--primary); }
         @keyframes spin { to{transform:rotate(360deg)} }
-
-        @media(min-width:640px) {
-            .letter-input { width:44px; height:54px; font-size:24px; }
-            .word-zh { font-size:36px; }
-        }
+        .loading-overlay { display:flex; align-items:center; justify-content:center; padding:60px; color:var(--text-3); gap:10px; font-size:14px; }
+        @media(min-width:640px) { .letter-input { width:44px; height:54px; font-size:24px; } .word-zh { font-size:36px; } }
     </style>
 </head>
 <body>
@@ -243,19 +133,13 @@
         <p>English Dictation Practice</p>
     </header>
 
-    <!-- Practice View -->
     <section id="practice-view" class="view active">
         <div class="card">
             <div class="progress-section">
-                <div class="progress-info">
-                    <span id="progress-text">1 / 0</span>
-                    <span id="progress-pct">0%</span>
-                </div>
-                <div class="progress-track">
-                    <div id="progress-fill" class="progress-fill"></div>
-                </div>
+                <div class="progress-info"><span id="progress-text">Loading...</span><span id="progress-pct"></span></div>
+                <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
             </div>
-            <div id="word-card" class="word-card-inner"></div>
+            <div id="word-card" class="word-card-inner"><div class="loading-overlay"><span class="spinner dark"></span> Loading words...</div></div>
             <div id="practice-nav" class="nav-buttons">
                 <button class="btn-prev" id="prev-btn" onclick="prevWord()">◀ 上一個</button>
                 <button class="btn-next" id="next-btn" onclick="nextWord()">下一個 ▶</button>
@@ -263,39 +147,29 @@
         </div>
     </section>
 
-    <!-- Details View -->
     <section id="details-view" class="view">
         <div id="details-content" class="card details-card"></div>
     </section>
 
-    <!-- Manage View -->
     <section id="manage-view" class="view">
         <div class="card manage-section">
-            <div class="api-key-area">
-                <div class="section-title">🤖 AI Provider</div>
-                <div style="display:flex;gap:8px;margin-bottom:12px">
-                    <label style="flex:1;display:flex;align-items:center;gap:6px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:13px;transition:all 0.2s" id="label-gemini">
-                        <input type="radio" name="provider" value="gemini" onchange="setProvider('gemini')" id="radio-gemini"> Gemini
-                    </label>
-                    <label style="flex:1;display:flex;align-items:center;gap:6px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:13px;transition:all 0.2s" id="label-groq">
-                        <input type="radio" name="provider" value="groq" onchange="setProvider('groq')" id="radio-groq"> Groq
-                    </label>
+            <div class="manage-pad">
+                <div class="section-title">🔐 Admin</div>
+                <div id="admin-status"></div>
+                <div id="admin-login">
+                    <div class="admin-row">
+                        <input type="password" id="admin-pw" placeholder="Enter admin password..." onkeydown="if(event.key==='Enter')loginAdmin()">
+                        <button onclick="loginAdmin()">Login</button>
+                    </div>
+                    <div class="admin-note">⚠️ Admin access required to add/remove words</div>
                 </div>
-                <div class="section-title" style="font-size:13px">🔑 API Key</div>
-                <div class="api-key-row">
-                    <input type="password" id="api-key-input" placeholder="Paste your API key here...">
-                    <button onclick="saveApiKey()">Save</button>
-                </div>
-                <div class="api-note" id="api-note">💡 Get a free key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a> (Gemini) or <a href="https://console.groq.com/keys" target="_blank">Groq Console</a>. Stored in your browser only.</div>
             </div>
         </div>
         <div class="card manage-section">
-            <div style="padding:16px 16px 8px">
-                <div class="section-title">📝 生字列表</div>
-            </div>
+            <div style="padding:16px 16px 8px"><div class="section-title">📝 生字列表</div></div>
             <div class="word-count" id="word-count"></div>
             <div class="word-list-area" id="word-list-area"></div>
-            <div class="add-word-area">
+            <div class="add-word-area" id="admin-controls" style="display:none">
                 <div class="section-title" style="font-size:13px">➕ 新增生字</div>
                 <div class="add-row">
                     <input type="text" id="add-word-input" placeholder="Type English word and press Enter..." onkeydown="if(event.key==='Enter')addWord()">
@@ -310,8 +184,8 @@
                 </div>
             </div>
         </div>
-        <div class="card manage-section">
-            <div class="export-area" style="flex-wrap:wrap">
+        <div class="card manage-section" id="admin-tools" style="display:none">
+            <div class="export-area">
                 <button onclick="retranslateAll()" style="flex-basis:100%;background:var(--primary);color:#fff;border-color:var(--primary)">🔄 Re-translate All (AI)</button>
                 <button onclick="exportWords()">📤 Export JSON</button>
                 <button onclick="document.getElementById('import-file').click()">📥 Import JSON</button>
@@ -320,63 +194,104 @@
         </div>
     </section>
 
-    <!-- Bottom Nav -->
     <nav class="bottom-nav">
-        <button class="nav-btn active" data-view="practice" onclick="switchView('practice')">
-            <span class="icon">📝</span><span>練習</span>
-        </button>
-        <button class="nav-btn" data-view="details" onclick="switchView('details')">
-            <span class="icon">📖</span><span>詞彙</span>
-        </button>
-        <button class="nav-btn" data-view="manage" onclick="switchView('manage')">
-            <span class="icon">⚙️</span><span>管理</span>
-        </button>
+        <button class="nav-btn active" data-view="practice" onclick="switchView('practice')"><span class="icon">📝</span><span>練習</span></button>
+        <button class="nav-btn" data-view="details" onclick="switchView('details')"><span class="icon">📖</span><span>詞彙</span></button>
+        <button class="nav-btn" data-view="manage" onclick="switchView('manage')"><span class="icon">⚙️</span><span>管理</span></button>
     </nav>
-
     <div class="toast-container" id="toast-container"></div>
 
     <script>
     /* ===== State ===== */
-    const STORE = { WORDS:'hh_words', KEY:'hh_api_key', PROVIDER:'hh_provider' };
-    const DEFAULT_WORDS = [
-        {en:"Witness",zh:"證人",emoji:"⚖️"},{en:"Burglar",zh:"竊賊",emoji:"🥷"},
-        {en:"Victim",zh:"受害者",emoji:"😨"},{en:"Security guard",zh:"保安人員",emoji:"👮"},
-        {en:"Magnifying glass",zh:"放大鏡",emoji:"🔍"},{en:"Realized",zh:"意識到",emoji:"💡"},
-        {en:"Raging",zh:"洶湧的",emoji:"🔥"},{en:"Powerful",zh:"強大的",emoji:"💪"},
-        {en:"Damaged",zh:"受損",emoji:"🔧"}
-    ];
-    let words = JSON.parse(localStorage.getItem(STORE.WORDS)) || [...DEFAULT_WORDS];
+    let words = [];
     let currentIdx = 0;
-    let apiKey = localStorage.getItem(STORE.KEY) || '';
-    let aiProvider = localStorage.getItem(STORE.PROVIDER) || 'gemini';
+    let adminPw = localStorage.getItem('hh_admin_pw') || '';
+    let isAdmin = false;
 
     /* ===== Init ===== */
-    function init() {
-        document.getElementById('api-key-input').value = apiKey ? '••••••••' : '';
-        document.getElementById('radio-' + aiProvider).checked = true;
-        updateProviderUI();
+    async function init() {
+        await loadWords();
+        if (adminPw) await verifyAdmin(true);
         renderPractice();
-        renderManageList();
+        updateAdminUI();
     }
 
-    function setProvider(p) {
-        aiProvider = p;
-        localStorage.setItem(STORE.PROVIDER, p);
-        // Clear saved key when switching providers
-        apiKey = '';
-        localStorage.removeItem(STORE.KEY);
-        document.getElementById('api-key-input').value = '';
-        updateProviderUI();
-        toast('Switched to ' + (p === 'gemini' ? 'Gemini' : 'Groq'), 'info');
+    async function loadWords() {
+        try {
+            const res = await fetch('/api/words');
+            if (!res.ok) throw new Error('Failed to load');
+            words = await res.json();
+        } catch (e) {
+            console.error('Load failed, using fallback:', e);
+            words = [];
+            toast('⚠️ Could not load words from server', 'error');
+        }
     }
 
-    function updateProviderUI() {
-        const lg = document.getElementById('label-gemini');
-        const lr = document.getElementById('label-groq');
-        lg.style.borderColor = aiProvider === 'gemini' ? 'var(--primary)' : 'var(--border)';
-        lg.style.background = aiProvider === 'gemini' ? '#eef2ff' : '#fff';
-        lr.style.borderColor = aiProvider === 'groq' ? 'var(--primary)' : 'var(--border)';
-        lr.style.background = aiProvider === 'groq' ? '#eef2ff' : '#fff';
+    async function saveWordsToServer() {
+        if (!adminPw) { toast('Please login as admin first', 'error'); return false; }
+        try {
+            const res = await fetch('/api/words', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password: adminPw, words })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Save failed');
+            return true;
+        } catch (e) {
+            toast('Save failed: ' + e.message, 'error');
+            return false;
+        }
+    }
+
+    /* ===== Admin ===== */
+    async function loginAdmin() {
+        const pw = document.getElementById('admin-pw').value.trim();
+        if (!pw) return;
+        adminPw = pw;
+        await verifyAdmin(false);
+    }
+
+    async function verifyAdmin(silent) {
+        try {
+            const res = await fetch('/api/words', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password: adminPw, words })
+            });
+            if (res.ok) {
+                isAdmin = true;
+                localStorage.setItem('hh_admin_pw', adminPw);
+                if (!silent) toast('✅ Admin login successful');
+            } else {
+                isAdmin = false;
+                adminPw = '';
+                localStorage.removeItem('hh_admin_pw');
+                if (!silent) toast('❌ Wrong password', 'error');
+            }
+        } catch (e) {
+            if (!silent) toast('Connection error', 'error');
+        }
+        updateAdminUI();
+    }
+
+    function updateAdminUI() {
+        const status = document.getElementById('admin-status');
+        const login = document.getElementById('admin-login');
+        const controls = document.getElementById('admin-controls');
+        const tools = document.getElementById('admin-tools');
+        if (isAdmin) {
+            status.innerHTML = '<span class="admin-badge">✅ Admin</span>';
+            login.style.display = 'none';
+            controls.style.display = 'block';
+            tools.style.display = 'block';
+        } else {
+            status.innerHTML = '';
+            login.style.display = 'block';
+            controls.style.display = 'none';
+            tools.style.display = 'none';
+        }
     }
 
     /* ===== Navigation ===== */
@@ -393,9 +308,6 @@
         const card = document.getElementById('word-card');
         const nav = document.getElementById('practice-nav');
         nav.style.display = 'flex';
-        document.getElementById('prev-btn').style.display = '';
-        document.getElementById('next-btn').style.display = '';
-
         if (words.length === 0) {
             card.innerHTML = '<div style="padding:40px;color:var(--text-3)">沒有生字，請到管理頁面新增。</div>';
             updateProgress(); return;
@@ -403,11 +315,8 @@
         const w = words[currentIdx];
         card.innerHTML = `
             <div class="card-label">溫習生字</div>
-            <div class="word-hint">
-                <div class="word-emoji">${w.emoji||'📝'}</div>
-                <div class="word-zh">${w.zh||'?'}</div>
-            </div>
-            <button class="speak-btn" onclick="speak('${w.en.replace(/'/g,"\\'")}')">🔊 聽發音</button>
+            <div><div class="word-emoji">${w.emoji||'📝'}</div><div class="word-zh">${w.zh||'?'}</div></div>
+            <button class="speak-btn" onclick="speak('${esc(w.en)}')">🔊 聽發音</button>
             <div class="input-area" id="input-area">${genInputs(w.en)}</div>
             <button class="hint-btn" onclick="giveHint()">💡 提示</button>
             <div id="success-msg" class="success-msg hidden">太棒了！答對了！ ✨</div>`;
@@ -415,6 +324,8 @@
         updateProgress();
         updateNavBtns();
     }
+
+    function esc(s) { return s.replace(/'/g, "\\'"); }
 
     function genInputs(word) {
         return word.split('').map(c => c === ' '
@@ -424,18 +335,13 @@
     }
 
     function checkLetter(el) {
-        const v = el.value.toLowerCase();
-        const expected = el.dataset.letter;
-        if (v === expected) {
+        if (el.value.toLowerCase() === el.dataset.letter) {
             el.classList.add('correct');
             let next = el.nextElementSibling;
             while(next && next.tagName !== 'INPUT') next = next.nextElementSibling;
             if (next) next.focus();
-        } else {
-            el.classList.remove('correct');
-        }
-        const allInputs = document.querySelectorAll('#input-area input');
-        if ([...allInputs].every(i => i.classList.contains('correct'))) {
+        } else { el.classList.remove('correct'); }
+        if ([...document.querySelectorAll('#input-area input')].every(i => i.classList.contains('correct'))) {
             document.getElementById('success-msg').classList.remove('hidden');
             speak(words[currentIdx].en);
         }
@@ -454,16 +360,13 @@
         const inputs = document.querySelectorAll('#input-area input');
         for (const inp of inputs) {
             if (!inp.classList.contains('correct')) {
-                inp.value = inp.dataset.letter;
-                inp.classList.add('correct');
+                inp.value = inp.dataset.letter; inp.classList.add('correct');
                 let next = inp.nextElementSibling;
                 while(next && next.tagName !== 'INPUT') next = next.nextElementSibling;
-                if (next) next.focus();
-                break;
+                if (next) next.focus(); break;
             }
         }
-        const allInputs = document.querySelectorAll('#input-area input');
-        if ([...allInputs].every(i => i.classList.contains('correct'))) {
+        if ([...inputs].every(i => i.classList.contains('correct'))) {
             document.getElementById('success-msg').classList.remove('hidden');
             speak(words[currentIdx].en);
         }
@@ -482,16 +385,11 @@
         document.getElementById('next-btn').textContent = currentIdx >= words.length - 1 ? '🏁 完成' : '下一個 ▶';
     }
 
-    function prevWord() { if(currentIdx>0){ currentIdx--; renderPractice(); } }
+    function prevWord() { if(currentIdx > 0){ currentIdx--; renderPractice(); } }
     function nextWord() {
         if (currentIdx < words.length - 1) { currentIdx++; renderPractice(); }
         else if (words.length > 0) {
-            document.getElementById('word-card').innerHTML = `
-                <div class="completion-screen">
-                    <h2>🏆 全部溫習完畢！</h2>
-                    <p>你太棒了！繼續努力！</p>
-                    <button class="restart-btn" onclick="currentIdx=0;renderPractice()">🔄 重新開始</button>
-                </div>`;
+            document.getElementById('word-card').innerHTML = `<div class="completion-screen"><h2>🏆 全部溫習完畢！</h2><p>你太棒了！繼續努力！</p><button class="restart-btn" onclick="currentIdx=0;renderPractice()">🔄 重新開始</button></div>`;
             document.getElementById('practice-nav').style.display = 'none';
         }
     }
@@ -502,170 +400,61 @@
         speechSynthesis.cancel();
         const u = new SpeechSynthesisUtterance(text);
         u.lang = 'en-US'; u.rate = 0.8;
-        const voices = speechSynthesis.getVoices();
-        const v = voices.find(v => v.lang.startsWith('en'));
+        const v = speechSynthesis.getVoices().find(v => v.lang.startsWith('en'));
         if (v) u.voice = v;
         speechSynthesis.speak(u);
     }
     if (window.speechSynthesis) speechSynthesis.onvoiceschanged = () => {};
 
-    /* ===== Details View ===== */
+    /* ===== Details ===== */
     function renderDetails() {
         const container = document.getElementById('details-content');
-        if (words.length === 0) {
-            container.innerHTML = '<div class="no-details">沒有生字</div>'; return;
-        }
-        const w = words[currentIdx];
-        const d = w.details;
-        let html = `
-            <div class="details-header">
-                <div class="emoji">${w.emoji||'📝'}</div>
-                <div class="en" style="cursor:pointer" onclick="speak('${w.en.replace(/'/g,"\\'")}')">${w.en} 🔊</div>
-                <div class="zh">${w.zh||''}</div>
-                ${d?.partOfSpeech ? `<span class="pos">${d.partOfSpeech}</span>` : ''}
-            </div>`;
-
-        if (d) {
-            if (d.forms?.length) {
-                html += `<div class="details-section"><h3>📝 Word Forms</h3><div>${d.forms.map(f =>
-                    `<span class="detail-tag" onclick="speak('${f.form.replace(/'/g,"\\'")}')">${f.form} <span class="tag-zh">${f.label||''}</span></span>`
-                ).join('')}</div></div>`;
-            }
-            if (d.synonyms?.length) {
-                html += `<div class="details-section"><h3>🔄 Synonyms 同義詞</h3><div>${d.synonyms.map(s =>
-                    `<span class="detail-tag" onclick="speak('${(s.word||s).replace(/'/g,"\\'")}')">${s.word||s} <span class="tag-zh">${s.zh||''}</span></span>`
-                ).join('')}</div></div>`;
-            }
-            if (d.antonyms?.length) {
-                html += `<div class="details-section"><h3>↔️ Antonyms 反義詞</h3><div>${d.antonyms.map(a =>
-                    `<span class="detail-tag" onclick="speak('${(a.word||a).replace(/'/g,"\\'")}')">${a.word||a} <span class="tag-zh">${a.zh||''}</span></span>`
-                ).join('')}</div></div>`;
-            }
-            if (d.related?.length) {
-                html += `<div class="details-section"><h3>🔗 Related 相關詞彙</h3><div>${d.related.map(r =>
-                    `<span class="detail-tag" onclick="speak('${(r.word||r).replace(/'/g,"\\'")}')">${r.word||r} <span class="tag-zh">${r.zh||''}</span></span>`
-                ).join('')}</div></div>`;
-            }
-            if (d.example) {
-                html += `<div class="details-section"><h3>💬 Example 例句</h3>
-                    <div class="detail-example">${d.example}${d.exampleZh ? `<div class="example-zh">${d.exampleZh}</div>` : ''}</div></div>`;
-            }
-        } else {
-            html += `<div class="no-details" style="padding:24px">
-                <p>尚未載入詞彙詳情</p>
-                <button class="fetch-btn" onclick="fetchDetails(${currentIdx})"><span class="spinner dark" id="fetch-spin-${currentIdx}" style="display:none"></span>✨ AI 生成詳情</button>
-            </div>`;
-        }
-
-        html += `<div class="details-nav">
-            <button onclick="detailsPrev()" ${currentIdx===0?'disabled':''}>◀ Prev</button>
-            <span class="counter">${currentIdx+1} / ${words.length}</span>
-            <button onclick="detailsNext()" ${currentIdx>=words.length-1?'disabled':''}>Next ▶</button>
+        if (!words.length) { container.innerHTML = '<div class="no-details">沒有生字</div>'; return; }
+        const w = words[currentIdx], d = w.details;
+        let html = `<div class="details-header">
+            <div class="emoji">${w.emoji||'📝'}</div>
+            <div class="en" onclick="speak('${esc(w.en)}')">${w.en} 🔊</div>
+            <div class="zh">${w.zh||''}</div>
+            ${d?.partOfSpeech ? `<span class="pos">${d.partOfSpeech}</span>` : ''}
         </div>`;
+        if (d) {
+            if (d.forms?.length) html += `<div class="details-section"><h3>📝 Word Forms</h3><div>${d.forms.map(f=>`<span class="detail-tag" onclick="speak('${esc(f.form)}')">${f.form} <span class="tag-zh">${f.label||''}</span></span>`).join('')}</div></div>`;
+            if (d.synonyms?.length) html += `<div class="details-section"><h3>🔄 Synonyms 同義詞</h3><div>${d.synonyms.map(s=>`<span class="detail-tag" onclick="speak('${esc(s.word||s)}')">${s.word||s} <span class="tag-zh">${s.zh||''}</span></span>`).join('')}</div></div>`;
+            if (d.antonyms?.length) html += `<div class="details-section"><h3>↔️ Antonyms 反義詞</h3><div>${d.antonyms.map(a=>`<span class="detail-tag" onclick="speak('${esc(a.word||a)}')">${a.word||a} <span class="tag-zh">${a.zh||''}</span></span>`).join('')}</div></div>`;
+            if (d.related?.length) html += `<div class="details-section"><h3>🔗 Related 相關詞彙</h3><div>${d.related.map(r=>`<span class="detail-tag" onclick="speak('${esc(r.word||r)}')">${r.word||r} <span class="tag-zh">${r.zh||''}</span></span>`).join('')}</div></div>`;
+            if (d.example) html += `<div class="details-section"><h3>💬 Example 例句</h3><div class="detail-example">${d.example}${d.exampleZh?`<div class="example-zh">${d.exampleZh}</div>`:''}</div></div>`;
+        } else {
+            html += `<div class="no-details" style="padding:24px"><p>尚未載入詞彙詳情</p><button class="fetch-btn" onclick="fetchDetails(${currentIdx})">✨ AI 生成詳情</button></div>`;
+        }
+        html += `<div class="details-nav"><button onclick="if(currentIdx>0){currentIdx--;renderDetails()}" ${currentIdx===0?'disabled':''}>◀ Prev</button><span class="counter">${currentIdx+1} / ${words.length}</span><button onclick="if(currentIdx<words.length-1){currentIdx++;renderDetails()}" ${currentIdx>=words.length-1?'disabled':''}>Next ▶</button></div>`;
         container.innerHTML = html;
     }
 
-    function detailsPrev() { if(currentIdx>0){ currentIdx--; renderDetails(); } }
-    function detailsNext() { if(currentIdx<words.length-1){ currentIdx++; renderDetails(); } }
-
     async function fetchDetails(idx) {
-        if (!apiKey) { toast('請先設定 API Key','error'); return; }
-        const w = words[idx];
-        const spinEl = document.getElementById('fetch-spin-'+idx);
-        if(spinEl) spinEl.style.display = 'inline-block';
+        toast('⏳ Loading details...', 'info');
         try {
-            const prompt = `You are a vocabulary assistant for a Hong Kong primary school student (age 10-11).
-For the English word/phrase "${w.en}", provide the following in valid JSON only (no markdown):
-{"partOfSpeech":"noun/verb/adjective/etc","forms":[{"form":"variation","label":"e.g. past tense"}],"synonyms":[{"word":"syn","zh":"中文"}],"antonyms":[{"word":"ant","zh":"中文"}],"related":[{"word":"related","zh":"中文"}],"example":"Simple sentence","exampleZh":"中文翻譯"}
-For verbs: include past tense, past participle, present participle. For adjectives: comparative, superlative.
-For proper nouns/places: related items in same category. Keep it simple for Primary 5 level. 2-3 items each. Return ONLY valid JSON.`;
-            const data = await callAI(prompt);
-            const parsed = JSON.parse(data.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim());
-            words[idx].details = parsed;
-            saveWords();
+            const res = await fetch('/api/details', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ word: words[idx].en })
+            });
+            if (!res.ok) throw new Error('API error: ' + res.status);
+            words[idx].details = await res.json();
+            if (isAdmin) await saveWordsToServer();
             renderDetails();
             toast('✅ 詞彙詳情已載入');
-        } catch(e) {
-            console.error(e);
-            toast('載入失敗: ' + e.message, 'error');
-        }
-        if(spinEl) spinEl.style.display = 'none';
-    }
-
-    /* ===== AI API ===== */
-    async function callAI(prompt) {
-        if (aiProvider === 'groq') return callGroq(prompt);
-        return callGemini(prompt);
-    }
-
-    async function callGemini(prompt) {
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                contents:[{parts:[{text:prompt}]}],
-                generationConfig:{temperature:0.3,maxOutputTokens:1024}
-            })
-        });
-        if (!res.ok) throw new Error('API error: ' + res.status);
-        const json = await res.json();
-        return json.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    }
-
-    async function callGroq(prompt) {
-        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
-            },
-            body: JSON.stringify({
-                model: 'llama-3.3-70b-versatile',
-                messages: [{role:'user', content:prompt}],
-                temperature: 0.3,
-                max_tokens: 1024
-            })
-        });
-        if (!res.ok) {
-            const err = await res.json().catch(() => ({}));
-            throw new Error(err.error?.message || 'Groq API error: ' + res.status);
-        }
-        const json = await res.json();
-        return json.choices?.[0]?.message?.content || '';
-    }
-
-    async function translateWord(en) {
-        if (!apiKey) return {zh:'',emoji:'📝'};
-        const prompt = `Translate the English word "${en}" to Traditional Chinese (繁體中文). Also suggest one relevant emoji. Return ONLY valid JSON: {"zh":"中文翻譯","emoji":"🎯"}`;
-        try {
-            const data = await callAI(prompt);
-            return JSON.parse(data.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim());
-        } catch(e) { console.error(e); return {zh:'',emoji:'📝'}; }
+        } catch (e) { toast('載入失敗: ' + e.message, 'error'); }
     }
 
     /* ===== Manage ===== */
-    function saveApiKey() {
-        const inp = document.getElementById('api-key-input');
-        const val = inp.value.trim();
-        if (val && !val.startsWith('••')) {
-            apiKey = val;
-            localStorage.setItem(STORE.KEY, apiKey);
-            inp.value = '••••••••';
-            toast('✅ API Key saved');
-        }
-    }
-
-    function saveWords() { localStorage.setItem(STORE.WORDS, JSON.stringify(words)); }
-
     function renderManageList() {
-        const area = document.getElementById('word-list-area');
         document.getElementById('word-count').textContent = `共 ${words.length} 個生字`;
-        area.innerHTML = words.map((w, i) => `
+        document.getElementById('word-list-area').innerHTML = words.map((w, i) => `
             <div class="word-row">
                 <span class="wr-em">${w.emoji||'📝'}</span>
                 <span class="wr-en">${w.en}</span>
                 <span class="wr-zh">${w.zh||'-'}</span>
-                <button class="wr-del" onclick="deleteWord(${i})" title="Delete">🗑</button>
+                ${isAdmin ? `<button class="wr-del" onclick="deleteWord(${i})" title="Delete">🗑</button>` : ''}
             </div>`).join('');
     }
 
@@ -675,102 +464,99 @@ For proper nouns/places: related items in same category. Keep it simple for Prim
         if (!en) return;
         inp.value = '';
         toast('⏳ Adding: ' + en, 'info');
-        const t = await translateWord(en);
-        words.push({en, zh:t.zh, emoji:t.emoji});
-        saveWords();
-        renderManageList();
-        toast(`✅ Added: ${en} (${t.zh} ${t.emoji})`);
+        try {
+            const res = await fetch('/api/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ word: en })
+            });
+            const t = res.ok ? await res.json() : { zh: '', emoji: '📝' };
+            words.push({ en, zh: t.zh, emoji: t.emoji });
+            if (await saveWordsToServer()) {
+                renderManageList();
+                toast(`✅ Added: ${en} (${t.zh} ${t.emoji})`);
+            }
+        } catch (e) {
+            words.push({ en, zh: '', emoji: '📝' });
+            await saveWordsToServer();
+            renderManageList();
+            toast(`⚠️ Added "${en}" without translation`, 'error');
+        }
     }
 
     async function batchAdd() {
         const textarea = document.getElementById('batch-input');
-        const lines = textarea.value.split('\n').map(l=>l.trim()).filter(Boolean);
+        const lines = textarea.value.split('\n').map(l => l.trim()).filter(Boolean);
         if (!lines.length) return;
         toast(`⏳ Adding ${lines.length} words...`, 'info');
         for (const en of lines) {
-            const t = await translateWord(en);
-            words.push({en, zh:t.zh, emoji:t.emoji});
+            try {
+                const res = await fetch('/api/translate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ word: en }) });
+                const t = res.ok ? await res.json() : { zh: '', emoji: '📝' };
+                words.push({ en, zh: t.zh, emoji: t.emoji });
+            } catch { words.push({ en, zh: '', emoji: '📝' }); }
         }
-        saveWords();
+        await saveWordsToServer();
         renderManageList();
         textarea.value = '';
         toast(`✅ Added ${lines.length} words`);
     }
 
     async function retranslateAll() {
-        if (!apiKey) { toast('請先設定 API Key','error'); return; }
-        const needTranslation = words.filter(w => !w.zh || w.zh === '' || w.zh === '?');
-        const count = needTranslation.length || words.length;
-        if (!confirm(`Re-translate ${count} words using ${aiProvider === 'groq' ? 'Groq' : 'Gemini'}?`)) return;
-        toast(`⏳ Translating ${count} words...`, 'info');
+        if (!confirm(`Re-translate all ${words.length} words?`)) return;
+        toast(`⏳ Translating...`, 'info');
         let done = 0;
         for (let i = 0; i < words.length; i++) {
-            if (!words[i].zh || words[i].zh === '' || words[i].zh === '?' || words[i].emoji === '📝') {
-                const t = await translateWord(words[i].en);
-                if (t.zh) words[i].zh = t.zh;
-                if (t.emoji && t.emoji !== '📝') words[i].emoji = t.emoji;
-                done++;
-                if (done % 3 === 0) {
-                    saveWords();
-                    renderManageList();
-                }
-            }
+            try {
+                const res = await fetch('/api/translate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ word: words[i].en }) });
+                if (res.ok) { const t = await res.json(); if (t.zh) words[i].zh = t.zh; if (t.emoji) words[i].emoji = t.emoji; done++; }
+            } catch {}
         }
-        saveWords();
+        await saveWordsToServer();
         renderManageList();
         renderPractice();
         toast(`✅ Translated ${done} words`);
     }
 
-    function deleteWord(idx) {
+    async function deleteWord(idx) {
         if (!confirm(`Delete "${words[idx].en}"?`)) return;
         words.splice(idx, 1);
         if (currentIdx >= words.length && currentIdx > 0) currentIdx = words.length - 1;
-        saveWords();
+        await saveWordsToServer();
         renderManageList();
         toast('🗑 Deleted');
     }
 
     function exportWords() {
-        const blob = new Blob([JSON.stringify(words, null, 2)], {type:'application/json'});
         const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'hh-dictation-words.json';
-        a.click();
-        toast('📤 Exported');
+        a.href = URL.createObjectURL(new Blob([JSON.stringify(words, null, 2)], { type: 'application/json' }));
+        a.download = 'hh-dictation-words.json'; a.click();
     }
 
-    function importWords(e) {
-        const file = e.target.files[0];
-        if (!file) return;
+    async function importWords(e) {
+        const file = e.target.files[0]; if (!file) return;
         const reader = new FileReader();
-        reader.onload = () => {
+        reader.onload = async () => {
             try {
                 const imported = JSON.parse(reader.result);
-                if (!Array.isArray(imported)) throw new Error('Invalid format');
-                words = imported;
-                currentIdx = 0;
-                saveWords();
-                renderManageList();
-                renderPractice();
+                if (!Array.isArray(imported)) throw new Error('Invalid');
+                words = imported; currentIdx = 0;
+                await saveWordsToServer();
+                renderManageList(); renderPractice();
                 toast(`📥 Imported ${words.length} words`);
-            } catch(err) { toast('Import failed: ' + err.message, 'error'); }
+            } catch (err) { toast('Import failed: ' + err.message, 'error'); }
         };
-        reader.readAsText(file);
-        e.target.value = '';
+        reader.readAsText(file); e.target.value = '';
     }
 
     /* ===== Toast ===== */
-    function toast(msg, type='success') {
-        const c = document.getElementById('toast-container');
+    function toast(msg, type = 'success') {
         const t = document.createElement('div');
-        t.className = 'toast ' + type;
-        t.textContent = msg;
-        c.appendChild(t);
+        t.className = 'toast ' + type; t.textContent = msg;
+        document.getElementById('toast-container').appendChild(t);
         setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
     }
 
-    /* ===== Start ===== */
     window.onload = init;
     </script>
 </body>

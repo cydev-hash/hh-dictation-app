@@ -481,12 +481,71 @@
   {
     "en": "documentary",
     "zh": "紀錄片",
-    "emoji": "📹"
+    "emoji": "📹",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "film",
+          "zh": "电影"
+        },
+        {
+          "word": "movie",
+          "zh": "电影"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "TV show",
+          "zh": "电视节目"
+        },
+        {
+          "word": "news",
+          "zh": "新闻"
+        }
+      ],
+      "example": "I watched a documentary about animals.",
+      "exampleZh": "我看了一部关于动物的纪录片。"
+    }
   },
   {
     "en": "warrior",
     "zh": "戰士",
-    "emoji": "⚔️"
+    "emoji": "⚔️",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "fighter",
+          "zh": "戰士"
+        },
+        {
+          "word": "soldier",
+          "zh": "士兵"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "coward",
+          "zh": "懦夫"
+        }
+      ],
+      "related": [
+        {
+          "word": "army",
+          "zh": "軍隊"
+        },
+        {
+          "word": "battle",
+          "zh": "戰鬥"
+        }
+      ],
+      "example": "The brave warrior fought for his country",
+      "exampleZh": "勇敢的戰士為他的國家而戰"
+    }
   },
   {
     "en": "Ltd",

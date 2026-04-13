@@ -491,12 +491,55 @@
   {
     "en": "Ltd",
     "zh": "有限公司",
-    "emoji": "🏢"
+    "emoji": "🏢",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "Company",
+          "zh": "公司"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "Incorporated",
+          "zh": "有限公司"
+        }
+      ],
+      "example": "The company is called ABC Ltd",
+      "exampleZh": "這間公司叫做ABC有限公司"
+    }
   },
   {
     "en": "charity",
     "zh": "慈善",
-    "emoji": "❤️"
+    "emoji": "❤️",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "donation",
+          "zh": "捐贈"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "selfishness",
+          "zh": "自私"
+        }
+      ],
+      "related": [
+        {
+          "word": "volunteer",
+          "zh": "義工"
+        }
+      ],
+      "example": "The school is organizing a charity event to help the poor.",
+      "exampleZh": "學校正在組織一個慈善活動來幫助窮人。"
+    }
   },
   {
     "en": "Terri",

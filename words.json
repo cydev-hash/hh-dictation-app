@@ -2,7 +2,39 @@
   {
     "en": "expert",
     "zh": "專家",
-    "emoji": "💡"
+    "emoji": "💡",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "specialist",
+          "zh": "專家"
+        },
+        {
+          "word": "master",
+          "zh": "大師"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "novice",
+          "zh": "新手"
+        },
+        {
+          "word": "amateur",
+          "zh": "業餘愛好者"
+        }
+      ],
+      "related": [
+        {
+          "word": "professional",
+          "zh": "專業人士"
+        }
+      ],
+      "example": "He is an expert in playing the piano.",
+      "exampleZh": "他是彈鋼琴的專家。"
+    }
   },
   {
     "en": "Steve Irwin",
@@ -1525,17 +1557,109 @@
   {
     "en": "celebrated",
     "zh": "著名",
-    "emoji": "🎉"
+    "emoji": "🎉",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "celebrate",
+          "label": "base form"
+        },
+        {
+          "form": "celebrated",
+          "label": "past tense"
+        },
+        {
+          "form": "celebrated",
+          "label": "past participle"
+        },
+        {
+          "form": "celebrating",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "honoured",
+          "zh": "受敬仰"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "ignored",
+          "zh": "被忽略"
+        }
+      ],
+      "related": [
+        {
+          "word": "festival",
+          "zh": "節日"
+        }
+      ],
+      "example": "The birthday was celebrated with a big cake.",
+      "exampleZh": "生日以大蛋糕來慶祝。"
+    }
   },
   {
     "en": "November",
     "zh": "十一月",
-    "emoji": "🍁"
+    "emoji": "🍁",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "11th month",
+          "zh": "第十一月"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "December",
+          "zh": "十二月"
+        },
+        {
+          "word": "October",
+          "zh": "十月"
+        }
+      ],
+      "example": "We have a holiday in November.",
+      "exampleZh": "我們在十一月有假期。"
+    }
   },
   {
     "en": "countries",
     "zh": "國家",
-    "emoji": "🌎"
+    "emoji": "🌎",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [
+        {
+          "form": "country",
+          "label": "singular"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "nations",
+          "zh": "国家"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "cities",
+          "zh": "城市"
+        },
+        {
+          "word": "continents",
+          "zh": "大陆"
+        }
+      ],
+      "example": "Many countries are in Asia.",
+      "exampleZh": "亚洲有很多国家。"
+    }
   },
   {
     "en": "concerned",

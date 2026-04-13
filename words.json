@@ -7,12 +7,57 @@
   {
     "en": "Steve Irwin",
     "zh": "史蒂夫伊溫",
-    "emoji": "🐊"
+    "emoji": "🐊",
+    "details": {
+      "partOfSpeech": "proper noun",
+      "forms": [],
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "Crocodile Hunter",
+          "zh": "鱷魚獵人"
+        },
+        {
+          "word": "Zoo",
+          "zh": "動物園"
+        },
+        {
+          "word": "Australia",
+          "zh": "澳洲"
+        }
+      ],
+      "example": "Steve Irwin was a famous zookeeper.",
+      "exampleZh": "史提夫·歐文是一位著名的動物園管理員"
+    }
   },
   {
     "en": "Programme",
     "zh": "節目",
-    "emoji": "📺"
+    "emoji": "📺",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "plan",
+          "zh": "計劃"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "schedule",
+          "zh": "時間表"
+        },
+        {
+          "word": "agenda",
+          "zh": "議程"
+        }
+      ],
+      "example": "The school has a special programme for the summer holiday.",
+      "exampleZh": "學校有一個特別的夏季假期計劃。"
+    }
   },
   {
     "en": "filmed",

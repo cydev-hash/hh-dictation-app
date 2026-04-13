@@ -139,7 +139,44 @@
   {
     "en": "filming",
     "zh": "拍攝",
-    "emoji": "📹"
+    "emoji": "📹",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "filmed",
+          "label": "past tense"
+        },
+        {
+          "form": "filmed",
+          "label": "past participle"
+        },
+        {
+          "form": "filming",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "recording",
+          "zh": "錄製"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "stopping",
+          "zh": "停止"
+        }
+      ],
+      "related": [
+        {
+          "word": "movie",
+          "zh": "電影"
+        }
+      ],
+      "example": "They are filming a new TV show.",
+      "exampleZh": "他們正在拍攝一部新電視節目。"
+    }
   },
   {
     "en": "Great Barrier Reef",

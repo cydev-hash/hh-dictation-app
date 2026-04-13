@@ -119,12 +119,94 @@
   {
     "en": "hosted",
     "zh": "舉辦",
-    "emoji": "🏠"
+    "emoji": "🏠",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "host",
+          "label": "base form"
+        },
+        {
+          "form": "hosted",
+          "label": "past tense"
+        },
+        {
+          "form": "hosted",
+          "label": "past participle"
+        },
+        {
+          "form": "hosting",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "organized",
+          "zh": "組織"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "attended",
+          "zh": "出席"
+        }
+      ],
+      "related": [
+        {
+          "word": "event",
+          "zh": "活動"
+        }
+      ],
+      "example": "The school hosted a concert last night",
+      "exampleZh": "學校昨晚舉辦了一場音樂會"
+    }
   },
   {
     "en": "brave",
     "zh": "勇敢",
-    "emoji": "💪"
+    "emoji": "💪",
+    "details": {
+      "partOfSpeech": "adjective",
+      "forms": [
+        {
+          "form": "braver",
+          "label": "comparative"
+        },
+        {
+          "form": "bravest",
+          "label": "superlative"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "courageous",
+          "zh": "勇敢的"
+        },
+        {
+          "word": "fearless",
+          "zh": "無所畏懼的"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "cowardly",
+          "zh": "懦弱的"
+        },
+        {
+          "word": "timid",
+          "zh": "害羞的"
+        }
+      ],
+      "related": [
+        {
+          "word": "hero",
+          "zh": "英雄"
+        }
+      ],
+      "example": "He is a brave boy",
+      "exampleZh": "他是一個勇敢的男孩"
+    }
   },
   {
     "en": "afternoon",

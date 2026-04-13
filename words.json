@@ -511,12 +511,62 @@
   {
     "en": "chest",
     "zh": "胸部",
-    "emoji": "🏹"
+    "emoji": "🏹",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "box",
+          "zh": "盒子"
+        },
+        {
+          "word": "trunk",
+          "zh": "大箱子"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "drawer",
+          "zh": "抽屜"
+        },
+        {
+          "word": "cabinet",
+          "zh": "櫃子"
+        }
+      ],
+      "example": "She opened the chest and found her old toys inside.",
+      "exampleZh": "她打開箱子，發現了她舊的玩具在裡面。"
+    }
   },
   {
     "en": "honeymoon",
     "zh": "蜜月",
-    "emoji": "💏"
+    "emoji": "💏",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "wedding trip",
+          "zh": "婚假"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "marriage",
+          "zh": "婚姻"
+        },
+        {
+          "word": "wedding",
+          "zh": "婚禮"
+        }
+      ],
+      "example": "They are on their honeymoon in Bali.",
+      "exampleZh": "他們在巴里度蜜月。"
+    }
   },
   {
     "en": "successful",

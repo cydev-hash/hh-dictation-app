@@ -1909,7 +1909,52 @@
   {
     "en": "Crowded",
     "zh": "擁擠",
-    "emoji": "🚶"
+    "emoji": "🚶",
+    "details": {
+      "partOfSpeech": "adjective",
+      "forms": [
+        {
+          "form": "crowded",
+          "label": "base form"
+        },
+        {
+          "form": "crowder",
+          "label": "comparative"
+        },
+        {
+          "form": "crowdest",
+          "label": "superlative"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "packed",
+          "zh": "擠滿的"
+        },
+        {
+          "word": "congested",
+          "zh": "擠擁的"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "empty",
+          "zh": "空的"
+        },
+        {
+          "word": "quiet",
+          "zh": "安靜的"
+        }
+      ],
+      "related": [
+        {
+          "word": "crowd",
+          "zh": "人群"
+        }
+      ],
+      "example": "The train was crowded during rush hour.",
+      "exampleZh": "在繁忙時間，火車上擠滿了人。"
+    }
   },
   {
     "en": "fed",

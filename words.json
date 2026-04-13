@@ -17,7 +17,48 @@
   {
     "en": "filmed",
     "zh": "拍攝",
-    "emoji": "📹"
+    "emoji": "📹",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "film",
+          "label": "base form"
+        },
+        {
+          "form": "filmed",
+          "label": "past tense"
+        },
+        {
+          "form": "filmed",
+          "label": "past participle"
+        },
+        {
+          "form": "filming",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "recorded",
+          "zh": "錄下"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "erased",
+          "zh": "刪除"
+        }
+      ],
+      "related": [
+        {
+          "word": "movie",
+          "zh": "電影"
+        }
+      ],
+      "example": "The movie was filmed in Hong Kong.",
+      "exampleZh": "這部電影在香港拍攝。"
+    }
   },
   {
     "en": "article",

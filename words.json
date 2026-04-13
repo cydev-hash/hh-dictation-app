@@ -1821,7 +1821,48 @@
   {
     "en": "renamed",
     "zh": "重新命名",
-    "emoji": "📝"
+    "emoji": "📝",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "rename",
+          "label": "base form"
+        },
+        {
+          "form": "renamed",
+          "label": "past tense"
+        },
+        {
+          "form": "renamed",
+          "label": "past participle"
+        },
+        {
+          "form": "renaming",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "changed",
+          "zh": "改變"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "kept",
+          "zh": "保持"
+        }
+      ],
+      "related": [
+        {
+          "word": "name",
+          "zh": "名稱"
+        }
+      ],
+      "example": "The street was renamed after the famous doctor.",
+      "exampleZh": "這條街道以著名醫生的名字重新命名。"
+    }
   },
   {
     "en": "wife",

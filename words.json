@@ -64,7 +64,30 @@
   {
     "en": "Melbourne",
     "zh": "墨爾本",
-    "emoji": "🗺️"
+    "emoji": "🗺️",
+    "details": {
+      "partOfSpeech": "proper noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "Victoria",
+          "zh": "維多利亞州"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "Sydney",
+          "zh": "悉尼"
+        },
+        {
+          "word": "Perth",
+          "zh": "珀斯"
+        }
+      ],
+      "example": "I want to visit Melbourne one day.",
+      "exampleZh": "我希望有一天可以去墨爾本旅遊。"
+    }
   },
   {
     "en": "Queensland",

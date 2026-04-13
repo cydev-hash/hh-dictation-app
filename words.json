@@ -109,7 +109,39 @@
   {
     "en": "wildlife",
     "zh": "野生動物",
-    "emoji": "🦁"
+    "emoji": "🦁",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "animals",
+          "zh": "動物"
+        },
+        {
+          "word": "creatures",
+          "zh": "生物"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "domesticated",
+          "zh": "家養的"
+        }
+      ],
+      "related": [
+        {
+          "word": "conservation",
+          "zh": "保護"
+        },
+        {
+          "word": "nature",
+          "zh": "自然"
+        }
+      ],
+      "example": "We should protect the wildlife in the forest.",
+      "exampleZh": "我們應該保護森林中的野生動物。"
+    }
   },
   {
     "en": "television",

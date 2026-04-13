@@ -169,7 +169,43 @@
   {
     "en": "honour",
     "zh": "榮譽",
-    "emoji": "🏆"
+    "emoji": "🏆",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "pride",
+          "zh": "自豪感"
+        },
+        {
+          "word": "respect",
+          "zh": "尊重"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "shame",
+          "zh": "羞恥"
+        },
+        {
+          "word": "disgrace",
+          "zh": "失恥"
+        }
+      ],
+      "related": [
+        {
+          "word": "award",
+          "zh": "獎項"
+        },
+        {
+          "word": "medal",
+          "zh": "獎牌"
+        }
+      ],
+      "example": "She felt great honour when she received the award.",
+      "exampleZh": "她獲得獎項時感到非常榮幸。"
+    }
   },
   {
     "en": "great",

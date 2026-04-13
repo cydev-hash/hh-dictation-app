@@ -531,12 +531,114 @@
   {
     "en": "dedicated",
     "zh": "奉獻的",
-    "emoji": "💯"
+    "emoji": "💯",
+    "details": {
+      "partOfSpeech": "adjective",
+      "forms": [
+        {
+          "form": "dedicated",
+          "label": "base form"
+        },
+        {
+          "form": "more dedicated",
+          "label": "comparative"
+        },
+        {
+          "form": "most dedicated",
+          "label": "superlative"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "devoted",
+          "zh": "獻身的"
+        },
+        {
+          "word": "committed",
+          "zh": "承諾的"
+        },
+        {
+          "word": "passionate",
+          "zh": "熱情的"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "lazy",
+          "zh": "懶惰的"
+        },
+        {
+          "word": "uninterested",
+          "zh": "無興趣的"
+        },
+        {
+          "word": "apathetic",
+          "zh": "冷漠的"
+        }
+      ],
+      "related": [
+        {
+          "word": "hardworking",
+          "zh": "勤奮的"
+        },
+        {
+          "word": "enthusiastic",
+          "zh": "熱心的"
+        },
+        {
+          "word": "responsible",
+          "zh": "負責的"
+        }
+      ],
+      "example": "She is a dedicated student.",
+      "exampleZh": "她是一名獻身的學生。"
+    }
   },
   {
     "en": "spent",
     "zh": "花費",
-    "emoji": "💸"
+    "emoji": "💸",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "spend",
+          "label": "present tense"
+        },
+        {
+          "form": "spent",
+          "label": "past tense"
+        },
+        {
+          "form": "spent",
+          "label": "past participle"
+        },
+        {
+          "form": "spending",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "used",
+          "zh": "使用"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "saved",
+          "zh": "節省"
+        }
+      ],
+      "related": [
+        {
+          "word": "money",
+          "zh": "金錢"
+        }
+      ],
+      "example": "I spent my pocket money on toys.",
+      "exampleZh": "我把零用錢花在玩具上。"
+    }
   },
   {
     "en": "celebrated",

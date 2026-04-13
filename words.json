@@ -501,12 +501,67 @@
   {
     "en": "Terri",
     "zh": "泰瑞",
-    "emoji": "👧"
+    "emoji": "👧",
+    "details": {
+      "partOfSpeech": "proper noun",
+      "forms": [],
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "Terry",
+          "zh": "同音姓氏"
+        },
+        {
+          "word": "Hong Kong",
+          "zh": "可能居住地"
+        }
+      ],
+      "example": "My friend Terri is very nice.",
+      "exampleZh": "我朋友Terri 很好"
+    }
   },
   {
     "en": "trapping",
     "zh": "捕捉",
-    "emoji": "🕸️"
+    "emoji": "🕸️",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "trapping",
+          "label": "present participle"
+        },
+        {
+          "form": "trapped",
+          "label": "past tense"
+        },
+        {
+          "form": "trapped",
+          "label": "past participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "catching",
+          "zh": "捕捉"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "releasing",
+          "zh": "釋放"
+        }
+      ],
+      "related": [
+        {
+          "word": "hunting",
+          "zh": "狩獵"
+        }
+      ],
+      "example": "The hunter is trapping birds in the forest",
+      "exampleZh": "獵人在森林中捕鳥"
+    }
   },
   {
     "en": "chest",

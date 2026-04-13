@@ -149,7 +149,44 @@
   {
     "en": "stung",
     "zh": "被蜇",
-    "emoji": "🐝"
+    "emoji": "🐝",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "stung",
+          "label": "past tense"
+        },
+        {
+          "form": "stung",
+          "label": "past participle"
+        },
+        {
+          "form": "stinging",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "hurt",
+          "zh": "受傷"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "soothed",
+          "zh": "舒緩"
+        }
+      ],
+      "related": [
+        {
+          "word": "insect",
+          "zh": "昆蟲"
+        }
+      ],
+      "example": "I was stung by a bee.",
+      "exampleZh": "我被一隻蜜蜂蜇傷了。"
+    }
   },
   {
     "en": "piercing",

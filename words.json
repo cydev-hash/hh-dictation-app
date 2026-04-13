@@ -89,7 +89,48 @@
   {
     "en": "lie down",
     "zh": "躺下",
-    "emoji": "🛋️"
+    "emoji": "🛋️",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "lie down",
+          "label": "base form"
+        },
+        {
+          "form": "lay down",
+          "label": "past tense"
+        },
+        {
+          "form": "lain down",
+          "label": "past participle"
+        },
+        {
+          "form": "lying down",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "rest",
+          "zh": "休息"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "stand up",
+          "zh": "站起"
+        }
+      ],
+      "related": [
+        {
+          "word": "sleep",
+          "zh": "睡覺"
+        }
+      ],
+      "example": "I will lie down on the bed.",
+      "exampleZh": "我會躺在床上。"
+    }
   },
   {
     "en": "sand",

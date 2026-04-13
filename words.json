@@ -94,12 +94,59 @@
   {
     "en": "sand",
     "zh": "沙",
-    "emoji": "🌀"
+    "emoji": "🌀",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "gravel",
+          "zh": "碎石"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "rock",
+          "zh": "岩石"
+        }
+      ],
+      "related": [
+        {
+          "word": "beach",
+          "zh": "海灘"
+        }
+      ],
+      "example": "The kids played with sand at the beach",
+      "exampleZh": "小朋友在海灘上玩沙子"
+    }
   },
   {
     "en": "Australia",
     "zh": "澳洲",
-    "emoji": "🐨"
+    "emoji": "🐨",
+    "details": {
+      "partOfSpeech": "proper noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "Oz",
+          "zh": "澳洲"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "word": "China",
+          "zh": "中國"
+        },
+        {
+          "word": "Japan",
+          "zh": "日本"
+        }
+      ],
+      "example": "I want to visit Australia one day.",
+      "exampleZh": "我希望有一天可以去澳洲旅行。"
+    }
   },
   {
     "en": "Crocodile Hunter",

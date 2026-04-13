@@ -1706,12 +1706,72 @@
   {
     "en": "conservation",
     "zh": "保護",
-    "emoji": "🌿"
+    "emoji": "🌿",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "protection",
+          "zh": "保護"
+        },
+        {
+          "word": "preservation",
+          "zh": "保存"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "destruction",
+          "zh": "破壞"
+        },
+        {
+          "word": "waste",
+          "zh": "浪費"
+        }
+      ],
+      "related": [
+        {
+          "word": "environment",
+          "zh": "環境"
+        },
+        {
+          "word": "wildlife",
+          "zh": "野生動物"
+        }
+      ],
+      "example": "We need to promote conservation of natural resources.",
+      "exampleZh": "我們需要推廣自然資源的保護。"
+    }
   },
   {
     "en": "protection",
     "zh": "保護",
-    "emoji": "🛡️"
+    "emoji": "🛡️",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "safety",
+          "zh": "安全"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "danger",
+          "zh": "危險"
+        }
+      ],
+      "related": [
+        {
+          "word": "shield",
+          "zh": "盾牌"
+        }
+      ],
+      "example": "The helmet provides protection for the head.",
+      "exampleZh": "頭盔為頭部提供保護。"
+    }
   },
   {
     "en": "environment",

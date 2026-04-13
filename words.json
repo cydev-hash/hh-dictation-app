@@ -1816,7 +1816,44 @@
   {
     "en": "illegal",
     "zh": "違法",
-    "emoji": "🚫"
+    "emoji": "🚫",
+    "details": {
+      "partOfSpeech": "adjective",
+      "forms": [
+        {
+          "form": "illegal",
+          "label": "base form"
+        },
+        {
+          "form": "more illegal",
+          "label": "comparative"
+        },
+        {
+          "form": "most illegal",
+          "label": "superlative"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "unlawful",
+          "zh": "不法的"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "legal",
+          "zh": "合法的"
+        }
+      ],
+      "related": [
+        {
+          "word": "crime",
+          "zh": "罪行"
+        }
+      ],
+      "example": "The police stopped the illegal parking.",
+      "exampleZh": "警察阻止了違法泊車。"
+    }
   },
   {
     "en": "renamed",

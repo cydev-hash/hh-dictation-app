@@ -74,7 +74,43 @@
   {
     "en": "Sunshine Beach",
     "zh": "陽光海灘",
-    "emoji": "☀️"
+    "emoji": "☀️",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "beach",
+          "zh": "海灘"
+        },
+        {
+          "word": "coast",
+          "zh": "海岸"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "mountain",
+          "zh": "山"
+        },
+        {
+          "word": "city",
+          "zh": "城市"
+        }
+      ],
+      "related": [
+        {
+          "word": "Repulse Bay",
+          "zh": "淺水灣"
+        },
+        {
+          "word": "Stanley Beach",
+          "zh": "赤柱海灘"
+        }
+      ],
+      "example": "I love playing at Sunshine Beach.",
+      "exampleZh": "我喜歡在陽光海灘玩。"
+    }
   },
   {
     "en": "tourists",

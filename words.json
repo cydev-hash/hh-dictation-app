@@ -1964,6 +1964,43 @@
   {
     "en": "Founded",
     "zh": "成立",
-    "emoji": "🏛️"
+    "emoji": "🏛️",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "founded",
+          "label": "past tense"
+        },
+        {
+          "form": "founded",
+          "label": "past participle"
+        },
+        {
+          "form": "founding",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "established",
+          "zh": "建立"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "abolished",
+          "zh": "廢除"
+        }
+      ],
+      "related": [
+        {
+          "word": "created",
+          "zh": "創造"
+        }
+      ],
+      "example": "The school was founded in 1990.",
+      "exampleZh": "這間學校於1990年成立。"
+    }
   }
 ]

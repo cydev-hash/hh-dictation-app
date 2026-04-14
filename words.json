@@ -1904,7 +1904,31 @@
   {
     "en": "wife",
     "zh": "妻子",
-    "emoji": "👫"
+    "emoji": "👫",
+    "details": {
+      "partOfSpeech": "noun",
+      "forms": [],
+      "synonyms": [
+        {
+          "word": "spouse",
+          "zh": "配偶"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "husband",
+          "zh": "丈夫"
+        }
+      ],
+      "related": [
+        {
+          "word": "marriage",
+          "zh": "婚姻"
+        }
+      ],
+      "example": "My father's wife is very kind.",
+      "exampleZh": "我爸爸的妻子很好。"
+    }
   },
   {
     "en": "Crowded",

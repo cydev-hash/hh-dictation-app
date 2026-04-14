@@ -1959,7 +1959,48 @@
   {
     "en": "fed",
     "zh": "餵養",
-    "emoji": "🐮"
+    "emoji": "🐮",
+    "details": {
+      "partOfSpeech": "verb",
+      "forms": [
+        {
+          "form": "feed",
+          "label": "present tense"
+        },
+        {
+          "form": "fed",
+          "label": "past tense"
+        },
+        {
+          "form": "fed",
+          "label": "past participle"
+        },
+        {
+          "form": "feeding",
+          "label": "present participle"
+        }
+      ],
+      "synonyms": [
+        {
+          "word": "nourish",
+          "zh": "提供營養"
+        }
+      ],
+      "antonyms": [
+        {
+          "word": "starve",
+          "zh": "餓"
+        }
+      ],
+      "related": [
+        {
+          "word": "hunger",
+          "zh": "飢餓"
+        }
+      ],
+      "example": "The baby was fed by her mother.",
+      "exampleZh": "嬰兒被母親餵食"
+    }
   },
   {
     "en": "Founded",

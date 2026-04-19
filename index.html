@@ -196,6 +196,46 @@
         .history-item .hi-score.good { color:#f59e0b; }
         .history-item .hi-score.poor { color:var(--danger); }
         .history-item .hi-time { font-size:11px; color:var(--text-3); }
+        .history-item.clickable { cursor:pointer; }
+        .history-item.clickable:hover { background:#f8fafc; }
+
+        /* Bottom Sheet Modal */
+        .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:200; display:flex; align-items:flex-end; }
+        .modal-overlay.hidden { display:none!important; }
+        .bottom-sheet { background:#fff; border-radius:20px 20px 0 0; width:100%; max-width:600px; margin:0 auto; max-height:85vh; overflow-y:auto; padding-bottom:env(safe-area-inset-bottom); }
+        .bs-handle { width:40px; height:4px; background:#e2e8f0; border-radius:2px; margin:12px auto 4px; }
+        .bs-header { padding:12px 20px 8px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); position:sticky; top:0; background:#fff; z-index:1; }
+        .bs-header h3 { font-size:14px; font-weight:700; }
+        .bs-close { background:none; border:none; font-size:20px; color:var(--text-3); cursor:pointer; padding:4px 8px; line-height:1; }
+
+        /* History detail word rows */
+        .detail-word-row { display:flex; align-items:center; gap:10px; padding:10px 20px; border-bottom:1px solid #f1f5f9; }
+        .detail-word-row .dwr-status { font-size:16px; width:22px; flex-shrink:0; }
+        .detail-word-row .dwr-word { font-weight:700; font-size:14px; flex:1; }
+        .detail-word-row .dwr-zh { font-size:12px; color:var(--text-3); min-width:50px; }
+        .detail-word-row .dwr-input { font-size:12px; color:var(--danger); background:#fef2f2; padding:2px 8px; border-radius:6px; font-family:monospace; }
+
+        /* Word stats panel */
+        .stats-panel { padding:10px 16px; border-bottom:1px solid var(--border); }
+        .stats-toggle { width:100%; background:none; border:1px solid var(--border); border-radius:var(--r-sm); padding:8px 14px; font-size:12px; font-weight:700; color:var(--text-2); cursor:pointer; font-family:inherit; display:flex; justify-content:space-between; align-items:center; }
+        .stats-toggle:hover { background:#f8fafc; }
+        .stats-rows { margin-top:10px; }
+        .stat-word-row { display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid #f8fafc; }
+        .stat-word-row .swr-word { font-weight:700; font-size:13px; min-width:80px; }
+        .stat-word-row .swr-zh { font-size:11px; color:var(--text-3); min-width:48px; }
+        .stat-word-row .swr-nums { font-size:11px; color:var(--text-2); min-width:40px; text-align:right; }
+        .stat-word-row .swr-bar-bg { flex:1; height:8px; background:#f1f5f9; border-radius:4px; overflow:hidden; }
+        .stat-word-row .swr-bar-fill { height:100%; border-radius:4px; }
+        .stat-word-row .swr-pct { font-size:11px; font-weight:700; min-width:34px; text-align:right; }
+
+        /* Review modal */
+        .review-word-row { display:flex; align-items:center; gap:8px; padding:8px 16px; border-bottom:1px solid #f1f5f9; }
+        .review-word-row .rwr-num { font-size:11px; color:var(--text-3); min-width:22px; }
+        .review-word-row .rwr-zh { font-size:13px; color:var(--text); min-width:70px; font-weight:600; }
+        .review-word-row .rwr-input { flex:1; padding:6px 10px; border:1.5px solid var(--border); border-radius:8px; font-size:14px; font-family:'Inter',monospace; outline:none; }
+        .review-word-row .rwr-input:focus { border-color:var(--primary); }
+        .mid-review-btn { padding:8px 14px; background:#fff; color:var(--primary); border:1.5px solid var(--primary-light); border-radius:var(--r-sm); font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; }
+        .mid-review-btn:hover { background:#eef2ff; }
 
         @media(min-width:640px) { .letter-input { width:44px; height:54px; font-size:24px; } .word-zh { font-size:36px; } }
     </style>
@@ -271,6 +311,7 @@
         <div id="test-content" class="card"></div>
         <div id="test-history-card" class="card manage-section" style="margin-top:16px">
             <div style="padding:16px 16px 8px"><div class="section-title">📊 默書記錄</div></div>
+            <div id="word-stats-panel"></div>
             <div id="test-history-list"></div>
         </div>
     </section>
@@ -282,6 +323,34 @@
         <button class="nav-btn" data-view="manage" onclick="switchView('manage')"><span class="icon">⚙️</span><span>管理</span></button>
     </nav>
     <div class="toast-container" id="toast-container"></div>
+
+    <!-- History Detail Bottom Sheet -->
+    <div id="history-detail-overlay" class="modal-overlay hidden" onclick="hideHistoryDetail()">
+        <div class="bottom-sheet" onclick="event.stopPropagation()">
+            <div class="bs-handle"></div>
+            <div class="bs-header">
+                <h3 id="history-detail-title">默書詳情</h3>
+                <button class="bs-close" onclick="hideHistoryDetail()">✕</button>
+            </div>
+            <div id="history-detail-content"></div>
+        </div>
+    </div>
+
+    <!-- Mid-dictation Review Modal -->
+    <div id="review-overlay" class="modal-overlay hidden" onclick="closeReviewModal()">
+        <div class="bottom-sheet" onclick="event.stopPropagation()">
+            <div class="bs-handle"></div>
+            <div class="bs-header">
+                <h3>🔍 檢查修改</h3>
+                <button class="bs-close" onclick="closeReviewModal()">✕</button>
+            </div>
+            <div id="review-content"></div>
+            <div style="padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;position:sticky;bottom:0;background:#fff">
+                <button onclick="closeReviewModal()" style="padding:8px 18px;border-radius:var(--r-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;background:#fff;color:var(--text-2);border:1px solid var(--border)">取消</button>
+                <button onclick="saveReviewEdits()" style="padding:8px 18px;border-radius:var(--r-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--primary);color:#fff;border:none">儲存修改 ✓</button>
+            </div>
+        </div>
+    </div>
 
     <script>
     /* ===== State ===== */
@@ -797,7 +866,10 @@
                 <div class="input-area" id="test-input-area">${genTestInputs(w.en)}</div>
             </div>
             <div class="nav-buttons" style="border-top:1px solid var(--border)">
-                <button class="test-skip-btn" onclick="skipTestWord()">跳過 ▶</button>
+                <div style="display:flex;gap:8px;align-items:center">
+                    ${testIdx > 0 ? '<button class="mid-review-btn" onclick="openReviewModal()">🔍 檢查修改</button>' : '<span></span>'}
+                    <button class="test-skip-btn" onclick="skipTestWord()">跳過 ▶</button>
+                </div>
                 <button class="test-submit-btn" onclick="submitTestWord()">提交 ✓</button>
             </div>`;
         setTimeout(() => { const f = document.querySelector('#test-input-area input'); if(f) f.focus(); }, 200);
@@ -877,9 +949,14 @@
         // Save to history
         const record = {
             date: new Date().toISOString(),
-            total, correct, pct,
+            score: correct, total, pct,
             time: testSeconds,
-            wrongWords
+            words: words.map((w, i) => ({
+                word: w.en,
+                zh: w.zh || '',
+                userInput: testAnswers[i].typed,
+                correct: testAnswers[i].correct
+            }))
         };
         testHistory.unshift(record);
         if (testHistory.length > 50) testHistory = testHistory.slice(0, 50);
@@ -907,19 +984,88 @@
 
     function renderTestHistory() {
         const list = document.getElementById('test-history-list');
+        const statsPanel = document.getElementById('word-stats-panel');
+
+        // Build per-word stats from sessions with the new structure
+        const wordStats = {};
+        testHistory.forEach(h => {
+            if (!h.words) return;
+            h.words.forEach(w => {
+                if (!wordStats[w.word]) wordStats[w.word] = { zh: w.zh, attempts: 0, wrong: 0 };
+                wordStats[w.word].attempts++;
+                if (!w.correct) wordStats[w.word].wrong++;
+            });
+        });
+        const statsArr = Object.entries(wordStats)
+            .map(([word, s]) => ({ word, ...s, rate: s.wrong / s.attempts }))
+            .sort((a, b) => b.rate - a.rate);
+
+        if (statsArr.length && statsPanel) {
+            statsPanel.innerHTML = `<div class="stats-panel">
+                <button class="stats-toggle" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                    <span>📈 單字錯誤統計 (${statsArr.length} 字)</span><span>▼</span>
+                </button>
+                <div class="stats-rows hidden">
+                    ${statsArr.map(s => {
+                        const pct = Math.round(s.rate * 100);
+                        const clr = pct >= 70 ? 'var(--danger)' : pct >= 40 ? 'var(--warning)' : 'var(--success)';
+                        return `<div class="stat-word-row">
+                            <span class="swr-word">${s.word}</span>
+                            <span class="swr-zh">${s.zh}</span>
+                            <span class="swr-nums">${s.wrong}/${s.attempts}</span>
+                            <div class="swr-bar-bg"><div class="swr-bar-fill" style="width:${pct}%;background:${clr}"></div></div>
+                            <span class="swr-pct" style="color:${clr}">${pct}%</span>
+                        </div>`;
+                    }).join('')}
+                </div>
+            </div>`;
+        } else if (statsPanel) {
+            statsPanel.innerHTML = '';
+        }
+
         if (!testHistory.length) {
             list.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-3);font-size:13px">尚無默書記錄</div>';
             return;
         }
-        list.innerHTML = testHistory.slice(0, 20).map(h => {
+        list.innerHTML = testHistory.slice(0, 20).map((h, idx) => {
+            const correct = h.score ?? h.correct ?? 0;
             const d = new Date(h.date);
             const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
             const cls = h.pct === 100 ? 'perfect' : h.pct >= 60 ? 'good' : 'poor';
-            return `<div class="history-item">
+            const hasDetail = !!h.words;
+            return `<div class="history-item${hasDetail ? ' clickable' : ''}" ${hasDetail ? `onclick="showHistoryDetail(${idx})"` : ''}>
                 <div><div class="hi-date">${dateStr}</div><div class="hi-time">⏱ ${formatTime(h.time)} · ${h.total} 字</div></div>
-                <div class="hi-score ${cls}">${h.pct}% (${h.correct}/${h.total})</div>
+                <div style="display:flex;align-items:center;gap:6px">
+                    <div class="hi-score ${cls}">${h.pct}% (${correct}/${h.total})</div>
+                    ${hasDetail ? '<span style="font-size:14px;color:var(--text-3)">›</span>' : ''}
+                </div>
             </div>`;
         }).join('');
+    }
+
+    function showHistoryDetail(idx) {
+        const h = testHistory[idx];
+        if (!h || !h.words) return;
+        const correct = h.score ?? h.correct ?? 0;
+        const d = new Date(h.date);
+        const dateStr = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+        document.getElementById('history-detail-title').textContent = `${dateStr}  ${h.pct}% (${correct}/${h.total})`;
+        document.getElementById('history-detail-content').innerHTML = h.words.map(w => {
+            const wrongHtml = !w.correct
+                ? `<span class="dwr-input">${w.userInput || '（未答）'}</span>`
+                : '';
+            return `<div class="detail-word-row">
+                <span class="dwr-status">${w.correct ? '✅' : '❌'}</span>
+                <span class="dwr-word">${w.word}</span>
+                <span class="dwr-zh">${w.zh}</span>
+                ${wrongHtml}
+            </div>`;
+        }).join('');
+        document.getElementById('history-detail-overlay').classList.remove('hidden');
+    }
+
+    function hideHistoryDetail() {
+        document.getElementById('history-detail-overlay').classList.add('hidden');
     }
 
     /* ===== Toast ===== */
@@ -928,6 +1074,40 @@
         t.className = 'toast ' + type; t.textContent = msg;
         document.getElementById('toast-container').appendChild(t);
         setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
+    }
+
+    /* ===== Mid-dictation Review ===== */
+    function openReviewModal() {
+        if (testIdx === 0) return;
+        const content = document.getElementById('review-content');
+        content.innerHTML = words.slice(0, testIdx).map((w, i) => {
+            const displayVal = testAnswers[i].typed;
+            return `<div class="review-word-row">
+                <span class="rwr-num">${i + 1}</span>
+                <span class="rwr-zh">${w.emoji || ''} ${w.zh || w.en}</span>
+                <input class="rwr-input" data-idx="${i}" data-expected="${w.en.replace(/ /g, '').toLowerCase()}"
+                    value="${displayVal}" placeholder="${w.en}"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>`;
+        }).join('');
+        document.getElementById('review-overlay').classList.remove('hidden');
+        const first = content.querySelector('.rwr-input');
+        if (first) setTimeout(() => first.focus(), 100);
+    }
+
+    function closeReviewModal() {
+        document.getElementById('review-overlay').classList.add('hidden');
+    }
+
+    function saveReviewEdits() {
+        document.querySelectorAll('#review-content .rwr-input').forEach(inp => {
+            const i = parseInt(inp.dataset.idx);
+            const expected = inp.dataset.expected;
+            const typed = inp.value.toLowerCase().replace(/\s/g, '');
+            testAnswers[i] = { typed, correct: typed === expected };
+        });
+        closeReviewModal();
+        toast('✅ 已儲存修改');
     }
 
     window.onload = init;

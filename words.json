@@ -202,35 +202,6 @@
     }
   },
   {
-    "en": "little space",
-    "zh": "小空間",
-    "emoji": "🚀",
-    "details": {
-      "partOfSpeech": "noun phrase",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "small area",
-          "zh": "小区域"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "large space",
-          "zh": "大空间"
-        }
-      ],
-      "related": [
-        {
-          "word": "room",
-          "zh": "房间"
-        }
-      ],
-      "example": "There is little space in my bedroom for a desk.",
-      "exampleZh": "我卧室里几乎没有地方放桌子。"
-    }
-  },
-  {
     "en": "starred",
     "zh": "評為滿分",
     "emoji": "⭐️",

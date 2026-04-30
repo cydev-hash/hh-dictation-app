@@ -1096,38 +1096,6 @@
     }
   },
   {
-    "en": "documentary",
-    "zh": "紀錄片",
-    "emoji": "📹",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "film",
-          "zh": "电影"
-        },
-        {
-          "word": "movie",
-          "zh": "电影"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "TV show",
-          "zh": "电视节目"
-        },
-        {
-          "word": "news",
-          "zh": "新闻"
-        }
-      ],
-      "example": "I watched a documentary about animals.",
-      "exampleZh": "我看了一部关于动物的纪录片。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

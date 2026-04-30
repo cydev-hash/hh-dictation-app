@@ -1034,68 +1034,6 @@
     }
   },
   {
-    "en": "great",
-    "zh": "偉大",
-    "emoji": "👍",
-    "details": {
-      "partOfSpeech": "adjective",
-      "forms": [
-        {
-          "form": "greater",
-          "label": "comparative"
-        },
-        {
-          "form": "greatest",
-          "label": "superlative"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "excellent",
-          "zh": "優秀的"
-        },
-        {
-          "word": "fantastic",
-          "zh": "奇妙的"
-        },
-        {
-          "word": "outstanding",
-          "zh": "傑出的"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "bad",
-          "zh": "壞的"
-        },
-        {
-          "word": "awful",
-          "zh": "糟糕的"
-        },
-        {
-          "word": "terrible",
-          "zh": "可怕的"
-        }
-      ],
-      "related": [
-        {
-          "word": "good",
-          "zh": "好的"
-        },
-        {
-          "word": "fine",
-          "zh": "好的"
-        },
-        {
-          "word": "nice",
-          "zh": "好的"
-        }
-      ],
-      "example": "The great wall is very long.",
-      "exampleZh": "長城很長。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

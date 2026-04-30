@@ -816,34 +816,6 @@
     }
   },
   {
-    "en": "Great Barrier Reef",
-    "zh": "大堡礁",
-    "emoji": "🐠",
-    "details": {
-      "partOfSpeech": "proper noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "coral reef",
-          "zh": "珊瑚礁"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "Sydney Opera House",
-          "zh": "悉尼歌劇院"
-        },
-        {
-          "word": "Uluru",
-          "zh": "艾爾斯岩"
-        }
-      ],
-      "example": "The fish swam near the Great Barrier Reef.",
-      "exampleZh": "魚兒在大堡礁附近游泳。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

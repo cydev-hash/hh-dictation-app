@@ -37,46 +37,6 @@
     }
   },
   {
-    "en": "environment",
-    "zh": "環境",
-    "emoji": "🌎",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "surroundings",
-          "zh": "周圍環境"
-        },
-        {
-          "word": "nature",
-          "zh": "自然界"
-        },
-        {
-          "word": "ecosystem",
-          "zh": "生態系統"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "conservation",
-          "zh": "保護環境"
-        },
-        {
-          "word": "pollution",
-          "zh": "污染"
-        },
-        {
-          "word": "recycle",
-          "zh": "回收"
-        }
-      ],
-      "example": "We should protect the environment.",
-      "exampleZh": "我們應該保護環境。"
-    }
-  },
-  {
     "en": "illegal",
     "zh": "違法",
     "emoji": "🚫",

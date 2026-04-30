@@ -37,33 +37,6 @@
     }
   },
   {
-    "en": "Steve Irwin",
-    "zh": "史蒂夫伊溫",
-    "emoji": "🐊",
-    "details": {
-      "partOfSpeech": "proper noun",
-      "forms": [],
-      "synonyms": [],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "Crocodile Hunter",
-          "zh": "鱷魚獵人"
-        },
-        {
-          "word": "Zoo",
-          "zh": "動物園"
-        },
-        {
-          "word": "Australia",
-          "zh": "澳洲"
-        }
-      ],
-      "example": "Steve Irwin was a famous zookeeper.",
-      "exampleZh": "史提夫·歐文是一位著名的動物園管理員"
-    }
-  },
-  {
     "en": "naturalist",
     "zh": "自然學家",
     "emoji": "🌿",

@@ -13,5 +13,10 @@
     "en": "severe",
     "zh": "嚴重",
     "emoji": "⚠️"
+  },
+  {
+    "en": "destoryed",
+    "zh": "破壞",
+    "emoji": "💥"
   }
 ]

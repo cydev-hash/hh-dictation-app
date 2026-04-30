@@ -1283,38 +1283,6 @@
     }
   },
   {
-    "en": "chest",
-    "zh": "胸部",
-    "emoji": "🏹",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "box",
-          "zh": "盒子"
-        },
-        {
-          "word": "trunk",
-          "zh": "大箱子"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "drawer",
-          "zh": "抽屜"
-        },
-        {
-          "word": "cabinet",
-          "zh": "櫃子"
-        }
-      ],
-      "example": "She opened the chest and found her old toys inside.",
-      "exampleZh": "她打開箱子，發現了她舊的玩具在裡面。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

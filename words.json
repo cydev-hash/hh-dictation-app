@@ -543,60 +543,6 @@
     }
   },
   {
-    "en": "successful",
-    "zh": "成功的",
-    "emoji": "🏆",
-    "details": {
-      "partOfSpeech": "adjective",
-      "forms": [
-        {
-          "form": "successful",
-          "label": "base form"
-        },
-        {
-          "form": "more successful",
-          "label": "comparative"
-        },
-        {
-          "form": "most successful",
-          "label": "superlative"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "flourishing",
-          "zh": "繁榮的"
-        },
-        {
-          "word": "prosperous",
-          "zh": "富裕的"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "unsuccessful",
-          "zh": "失敗的"
-        },
-        {
-          "word": "failing",
-          "zh": "失敗的"
-        }
-      ],
-      "related": [
-        {
-          "word": "achievement",
-          "zh": "成就"
-        },
-        {
-          "word": "accomplishment",
-          "zh": "完成"
-        }
-      ],
-      "example": "She is a successful student.",
-      "exampleZh": "她是一名成功的學生。"
-    }
-  },
-  {
     "en": "starred",
     "zh": "評為滿分",
     "emoji": "⭐️",

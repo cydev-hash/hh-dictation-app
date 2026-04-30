@@ -1165,30 +1165,6 @@
     }
   },
   {
-    "en": "Ltd",
-    "zh": "有限公司",
-    "emoji": "🏢",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "Company",
-          "zh": "公司"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "Incorporated",
-          "zh": "有限公司"
-        }
-      ],
-      "example": "The company is called ABC Ltd",
-      "exampleZh": "這間公司叫做ABC有限公司"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

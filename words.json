@@ -202,52 +202,6 @@
     }
   },
   {
-    "en": "born",
-    "zh": "出生",
-    "emoji": "👶",
-    "details": {
-      "partOfSpeech": "verb",
-      "forms": [
-        {
-          "form": "born",
-          "label": "present"
-        },
-        {
-          "form": "was born",
-          "label": "past tense"
-        },
-        {
-          "form": "been born",
-          "label": "past participle"
-        },
-        {
-          "form": "being born",
-          "label": "present participle"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "created",
-          "zh": "創造"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "died",
-          "zh": "死亡"
-        }
-      ],
-      "related": [
-        {
-          "word": "baby",
-          "zh": "嬰兒"
-        }
-      ],
-      "example": "I was born in Hong Kong",
-      "exampleZh": "我在香港出生"
-    }
-  },
-  {
     "en": "little space",
     "zh": "小空間",
     "emoji": "🚀",

@@ -412,34 +412,6 @@
     }
   },
   {
-    "en": "Crocodile Hunter",
-    "zh": "鱷魚獵人",
-    "emoji": "🐊",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "wildlife expert",
-          "zh": "野生动物专家"
-        },
-        {
-          "word": "zoologist",
-          "zh": "动物学家"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "Steve Irwin",
-          "zh": "史蒂夫·欧文"
-        }
-      ],
-      "example": "He was a famous Crocodile Hunter.",
-      "exampleZh": "他是一位著名的鳄鱼猎人。"
-    }
-  },
-  {
     "en": "starred",
     "zh": "評為滿分",
     "emoji": "⭐️",

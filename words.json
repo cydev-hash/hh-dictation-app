@@ -37,35 +37,6 @@
     }
   },
   {
-    "en": "protection",
-    "zh": "保護",
-    "emoji": "🛡️",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "safety",
-          "zh": "安全"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "danger",
-          "zh": "危險"
-        }
-      ],
-      "related": [
-        {
-          "word": "shield",
-          "zh": "盾牌"
-        }
-      ],
-      "example": "The helmet provides protection for the head.",
-      "exampleZh": "頭盔為頭部提供保護。"
-    }
-  },
-  {
     "en": "environment",
     "zh": "環境",
     "emoji": "🌎",

@@ -886,48 +886,6 @@
     }
   },
   {
-    "en": "piercing",
-    "zh": "穿刺",
-    "emoji": "⚔️",
-    "details": {
-      "partOfSpeech": "adjective",
-      "forms": [
-        {
-          "form": "piercing",
-          "label": "base form"
-        },
-        {
-          "form": "more piercing",
-          "label": "comparative"
-        },
-        {
-          "form": "most piercing",
-          "label": "superlative"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "sharp",
-          "zh": "銳利的"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "dull",
-          "zh": "鈍的"
-        }
-      ],
-      "related": [
-        {
-          "word": "loud",
-          "zh": "響亮的"
-        }
-      ],
-      "example": "The piercing sound of the fire alarm woke me up.",
-      "exampleZh": "消防警報器的刺耳聲音把我吵醒了。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

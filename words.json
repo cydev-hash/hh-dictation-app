@@ -956,43 +956,6 @@
     }
   },
   {
-    "en": "accident",
-    "zh": "意外事故",
-    "emoji": "⚠️",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "mishap",
-          "zh": "意外事件"
-        },
-        {
-          "word": "incident",
-          "zh": "事件"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "safety",
-          "zh": "安全"
-        }
-      ],
-      "related": [
-        {
-          "word": "injury",
-          "zh": "受傷"
-        },
-        {
-          "word": "emergency",
-          "zh": "緊急情況"
-        }
-      ],
-      "example": "The car accident happened on the highway.",
-      "exampleZh": "汽車意外發生在高速公路上"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

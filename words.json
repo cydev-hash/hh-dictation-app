@@ -1509,52 +1509,6 @@
     }
   },
   {
-    "en": "spent",
-    "zh": "花費",
-    "emoji": "💸",
-    "details": {
-      "partOfSpeech": "verb",
-      "forms": [
-        {
-          "form": "spend",
-          "label": "present tense"
-        },
-        {
-          "form": "spent",
-          "label": "past tense"
-        },
-        {
-          "form": "spent",
-          "label": "past participle"
-        },
-        {
-          "form": "spending",
-          "label": "present participle"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "used",
-          "zh": "使用"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "saved",
-          "zh": "節省"
-        }
-      ],
-      "related": [
-        {
-          "word": "money",
-          "zh": "金錢"
-        }
-      ],
-      "example": "I spent my pocket money on toys.",
-      "exampleZh": "我把零用錢花在玩具上。"
-    }
-  },
-  {
     "en": "conservation",
     "zh": "保護",
     "emoji": "🌿",

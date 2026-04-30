@@ -1601,48 +1601,6 @@
     }
   },
   {
-    "en": "concerned",
-    "zh": "關心",
-    "emoji": "🤔",
-    "details": {
-      "partOfSpeech": "adjective",
-      "forms": [
-        {
-          "form": "concerned",
-          "label": "base form"
-        },
-        {
-          "form": "more concerned",
-          "label": "comparative"
-        },
-        {
-          "form": "most concerned",
-          "label": "superlative"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "worried",
-          "zh": "擔心"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "unconcerned",
-          "zh": "不關心"
-        }
-      ],
-      "related": [
-        {
-          "word": "care",
-          "zh": "關心"
-        }
-      ],
-      "example": "I am concerned about my pet's health.",
-      "exampleZh": "我擔心我的寵物的健康。"
-    }
-  },
-  {
     "en": "conservation",
     "zh": "保護",
     "emoji": "🌿",

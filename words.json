@@ -1189,35 +1189,6 @@
     }
   },
   {
-    "en": "charity",
-    "zh": "慈善",
-    "emoji": "❤️",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "donation",
-          "zh": "捐贈"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "selfishness",
-          "zh": "自私"
-        }
-      ],
-      "related": [
-        {
-          "word": "volunteer",
-          "zh": "義工"
-        }
-      ],
-      "example": "The school is organizing a charity event to help the poor.",
-      "exampleZh": "學校正在組織一個慈善活動來幫助窮人。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

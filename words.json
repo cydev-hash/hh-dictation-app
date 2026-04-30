@@ -733,47 +733,6 @@
     }
   },
   {
-    "en": "idea",
-    "zh": "想法",
-    "emoji": "💡",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "thought",
-          "zh": "想法"
-        },
-        {
-          "word": "concept",
-          "zh": "概念"
-        },
-        {
-          "word": "plan",
-          "zh": "計劃"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "reality",
-          "zh": "現實"
-        }
-      ],
-      "related": [
-        {
-          "word": "imagination",
-          "zh": "想象力"
-        },
-        {
-          "word": "creativity",
-          "zh": "創造力"
-        }
-      ],
-      "example": "I have a great idea for a new game",
-      "exampleZh": "我有一個很好的新遊戲想法"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

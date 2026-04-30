@@ -138,38 +138,6 @@
     }
   },
   {
-    "en": "article",
-    "zh": "文章",
-    "emoji": "📰",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "piece",
-          "zh": "篇章"
-        },
-        {
-          "word": "essay",
-          "zh": "文章"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "newspaper",
-          "zh": "報紙"
-        },
-        {
-          "word": "magazine",
-          "zh": "雜誌"
-        }
-      ],
-      "example": "I read an interesting article in the newspaper.",
-      "exampleZh": "我在報紙上讀了一篇有趣的文章"
-    }
-  },
-  {
     "en": "naturalist",
     "zh": "自然學家",
     "emoji": "🌿",

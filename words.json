@@ -580,38 +580,6 @@
     }
   },
   {
-    "en": "television",
-    "zh": "電視",
-    "emoji": "📺",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "TV",
-          "zh": "電視機"
-        },
-        {
-          "word": "screen",
-          "zh": "螢幕"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "radio",
-          "zh": "收音機"
-        },
-        {
-          "word": "computer",
-          "zh": "電腦"
-        }
-      ],
-      "example": "I watch my favorite show on television.",
-      "exampleZh": "我在電視上看我最喜愛的節目。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

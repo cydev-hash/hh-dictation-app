@@ -1218,29 +1218,6 @@
     }
   },
   {
-    "en": "Terri",
-    "zh": "泰瑞",
-    "emoji": "👧",
-    "details": {
-      "partOfSpeech": "proper noun",
-      "forms": [],
-      "synonyms": [],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "Terry",
-          "zh": "同音姓氏"
-        },
-        {
-          "word": "Hong Kong",
-          "zh": "可能居住地"
-        }
-      ],
-      "example": "My friend Terri is very nice.",
-      "exampleZh": "我朋友Terri 很好"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

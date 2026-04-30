@@ -345,44 +345,6 @@
     }
   },
   {
-    "en": "tourists",
-    "zh": "觀光客",
-    "emoji": "🗺️",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [
-        {
-          "form": "tourist",
-          "label": "singular"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "travelers",
-          "zh": "旅行者"
-        },
-        {
-          "word": "visitors",
-          "zh": "訪客"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "locals",
-          "zh": "本地人"
-        }
-      ],
-      "related": [
-        {
-          "word": "sightseeing",
-          "zh": "觀光"
-        }
-      ],
-      "example": "The tourists visited the museum.",
-      "exampleZh": "遊客參觀了博物館"
-    }
-  },
-  {
     "en": "little space",
     "zh": "小空間",
     "emoji": "🚀",

@@ -1241,48 +1241,6 @@
     }
   },
   {
-    "en": "trapping",
-    "zh": "捕捉",
-    "emoji": "🕸️",
-    "details": {
-      "partOfSpeech": "verb",
-      "forms": [
-        {
-          "form": "trapping",
-          "label": "present participle"
-        },
-        {
-          "form": "trapped",
-          "label": "past tense"
-        },
-        {
-          "form": "trapped",
-          "label": "past participle"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "catching",
-          "zh": "捕捉"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "releasing",
-          "zh": "釋放"
-        }
-      ],
-      "related": [
-        {
-          "word": "hunting",
-          "zh": "狩獵"
-        }
-      ],
-      "example": "The hunter is trapping birds in the forest",
-      "exampleZh": "獵人在森林中捕鳥"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

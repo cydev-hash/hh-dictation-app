@@ -1601,39 +1601,6 @@
     }
   },
   {
-    "en": "countries",
-    "zh": "國家",
-    "emoji": "🌎",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [
-        {
-          "form": "country",
-          "label": "singular"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "nations",
-          "zh": "国家"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "cities",
-          "zh": "城市"
-        },
-        {
-          "word": "continents",
-          "zh": "大陆"
-        }
-      ],
-      "example": "Many countries are in Asia.",
-      "exampleZh": "亚洲有很多国家。"
-    }
-  },
-  {
     "en": "concerned",
     "zh": "關心",
     "emoji": "🤔",

@@ -1601,34 +1601,6 @@
     }
   },
   {
-    "en": "November",
-    "zh": "十一月",
-    "emoji": "🍁",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "11th month",
-          "zh": "第十一月"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "December",
-          "zh": "十二月"
-        },
-        {
-          "word": "October",
-          "zh": "十月"
-        }
-      ],
-      "example": "We have a holiday in November.",
-      "exampleZh": "我們在十一月有假期。"
-    }
-  },
-  {
     "en": "countries",
     "zh": "國家",
     "emoji": "🌎",

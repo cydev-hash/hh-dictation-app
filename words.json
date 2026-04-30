@@ -37,52 +37,6 @@
     }
   },
   {
-    "en": "starred",
-    "zh": "評為滿分",
-    "emoji": "⭐️",
-    "details": {
-      "partOfSpeech": "verb",
-      "forms": [
-        {
-          "form": "star",
-          "label": "base form"
-        },
-        {
-          "form": "starred",
-          "label": "past tense"
-        },
-        {
-          "form": "starred",
-          "label": "past participle"
-        },
-        {
-          "form": "starring",
-          "label": "present participle"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "featured",
-          "zh": "擔任主角"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "unstarred",
-          "zh": "未被評為主角"
-        }
-      ],
-      "related": [
-        {
-          "word": "actor",
-          "zh": "演員"
-        }
-      ],
-      "example": "The famous actor starred in the movie.",
-      "exampleZh": "著名演員在電影中擔任主角。"
-    }
-  },
-  {
     "en": "conservation",
     "zh": "保護",
     "emoji": "🌿",

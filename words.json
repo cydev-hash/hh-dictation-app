@@ -37,38 +37,6 @@
     }
   },
   {
-    "en": "naturalist",
-    "zh": "自然學家",
-    "emoji": "🌿",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "scientist",
-          "zh": "科學家"
-        },
-        {
-          "word": "biologist",
-          "zh": "生物學家"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "conservationist",
-          "zh": "保護主義者"
-        },
-        {
-          "word": "environmentalist",
-          "zh": "環保主義者"
-        }
-      ],
-      "example": "The naturalist studied the birds in the forest.",
-      "exampleZh": "自然學家在森林中研究鳥類。"
-    }
-  },
-  {
     "en": "starred",
     "zh": "評為滿分",
     "emoji": "⭐️",

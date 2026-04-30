@@ -412,34 +412,6 @@
     }
   },
   {
-    "en": "Australia",
-    "zh": "澳洲",
-    "emoji": "🐨",
-    "details": {
-      "partOfSpeech": "proper noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "Oz",
-          "zh": "澳洲"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "China",
-          "zh": "中國"
-        },
-        {
-          "word": "Japan",
-          "zh": "日本"
-        }
-      ],
-      "example": "I want to visit Australia one day.",
-      "exampleZh": "我希望有一天可以去澳洲旅行。"
-    }
-  },
-  {
     "en": "Crocodile Hunter",
     "zh": "鱷魚獵人",
     "emoji": "🐊",

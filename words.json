@@ -543,34 +543,6 @@
     }
   },
   {
-    "en": "honeymoon",
-    "zh": "蜜月",
-    "emoji": "💏",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "wedding trip",
-          "zh": "婚假"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "marriage",
-          "zh": "婚姻"
-        },
-        {
-          "word": "wedding",
-          "zh": "婚禮"
-        }
-      ],
-      "example": "They are on their honeymoon in Bali.",
-      "exampleZh": "他們在巴里度蜜月。"
-    }
-  },
-  {
     "en": "successful",
     "zh": "成功的",
     "emoji": "🏆",

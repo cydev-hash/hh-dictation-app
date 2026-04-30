@@ -64,34 +64,6 @@
     }
   },
   {
-    "en": "Programme",
-    "zh": "節目",
-    "emoji": "📺",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "plan",
-          "zh": "計劃"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "schedule",
-          "zh": "時間表"
-        },
-        {
-          "word": "agenda",
-          "zh": "議程"
-        }
-      ],
-      "example": "The school has a special programme for the summer holiday.",
-      "exampleZh": "學校有一個特別的夏季假期計劃。"
-    }
-  },
-  {
     "en": "naturalist",
     "zh": "自然學家",
     "emoji": "🌿",

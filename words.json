@@ -928,34 +928,6 @@
     }
   },
   {
-    "en": "result",
-    "zh": "結果",
-    "emoji": "📊",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "consequence",
-          "zh": "結果"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "score",
-          "zh": "分數"
-        },
-        {
-          "word": "mark",
-          "zh": "成績"
-        }
-      ],
-      "example": "The result of the game was a win for our team.",
-      "exampleZh": "比賽的結果是我們的隊伍勝利。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

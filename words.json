@@ -28,5 +28,75 @@
     "en": "forecast",
     "zh": "預測",
     "emoji": "⛅️"
+  },
+  {
+    "en": "violent",
+    "zh": "暴力",
+    "emoji": "⚔️"
+  },
+  {
+    "en": "earthquake",
+    "zh": "地震",
+    "emoji": "🌎"
+  },
+  {
+    "en": "homeless",
+    "zh": "無家可歸",
+    "emoji": "🏠"
+  },
+  {
+    "en": "monstrous",
+    "zh": "怪物般的",
+    "emoji": "👹"
+  },
+  {
+    "en": "drought",
+    "zh": "乾旱",
+    "emoji": "☀️"
+  },
+  {
+    "en": "natural disasters",
+    "zh": "自然災害",
+    "emoji": "⛈️"
+  },
+  {
+    "en": "tsunami",
+    "zh": "海嘯",
+    "emoji": "🌊"
+  },
+  {
+    "en": "volcanic eruption",
+    "zh": "火山爆發",
+    "emoji": "🌋"
+  },
+  {
+    "en": "hurricane",
+    "zh": "颱風",
+    "emoji": "⛈️"
+  },
+  {
+    "en": "experts",
+    "zh": "專家",
+    "emoji": "👥"
+  },
+  {
+    "en": "realized",
+    "zh": "意識到、發現",
+    "emoji": "💡"
+  },
+  {
+    "en": "raging",
+    "zh": "狂暴的",
+    "emoji": "🔥"
+  },
+  {
+    "en": "powerful",
+    "zh": "強大",
+    "emoji": "⚡️"
+  },
+  {
+    "en": "damaged",
+    "zh": "受損",
+    "emoji": "🚧"
   }
 ]

@@ -704,35 +704,6 @@
     }
   },
   {
-    "en": "afternoon",
-    "zh": "下午",
-    "emoji": "☀️",
-    "details": {
-      "partOfSpeech": "noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "daytime",
-          "zh": "白天"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "morning",
-          "zh": "早晨"
-        }
-      ],
-      "related": [
-        {
-          "word": "evening",
-          "zh": "晚上"
-        }
-      ],
-      "example": "I will play soccer in the afternoon.",
-      "exampleZh": "我下午會踢足球。"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

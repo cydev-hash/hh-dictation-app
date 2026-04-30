@@ -276,34 +276,6 @@
     }
   },
   {
-    "en": "Queensland",
-    "zh": "昆士蘭",
-    "emoji": "🏖️",
-    "details": {
-      "partOfSpeech": "proper noun",
-      "forms": [],
-      "synonyms": [
-        {
-          "word": "Australia",
-          "zh": "澳洲"
-        }
-      ],
-      "antonyms": [],
-      "related": [
-        {
-          "word": "Sydney",
-          "zh": "悉尼"
-        },
-        {
-          "word": "Melbourne",
-          "zh": "墨爾本"
-        }
-      ],
-      "example": "I want to visit Queensland in Australia.",
-      "exampleZh": "我想去澳洲的昆士蘭旅行。"
-    }
-  },
-  {
     "en": "little space",
     "zh": "小空間",
     "emoji": "🚀",

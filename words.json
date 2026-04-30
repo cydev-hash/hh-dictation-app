@@ -612,52 +612,6 @@
     }
   },
   {
-    "en": "hosted",
-    "zh": "舉辦",
-    "emoji": "🏠",
-    "details": {
-      "partOfSpeech": "verb",
-      "forms": [
-        {
-          "form": "host",
-          "label": "base form"
-        },
-        {
-          "form": "hosted",
-          "label": "past tense"
-        },
-        {
-          "form": "hosted",
-          "label": "past participle"
-        },
-        {
-          "form": "hosting",
-          "label": "present participle"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "organized",
-          "zh": "組織"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "attended",
-          "zh": "出席"
-        }
-      ],
-      "related": [
-        {
-          "word": "event",
-          "zh": "活動"
-        }
-      ],
-      "example": "The school hosted a concert last night",
-      "exampleZh": "學校昨晚舉辦了一場音樂會"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

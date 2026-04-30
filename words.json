@@ -1555,52 +1555,6 @@
     }
   },
   {
-    "en": "celebrated",
-    "zh": "著名",
-    "emoji": "🎉",
-    "details": {
-      "partOfSpeech": "verb",
-      "forms": [
-        {
-          "form": "celebrate",
-          "label": "base form"
-        },
-        {
-          "form": "celebrated",
-          "label": "past tense"
-        },
-        {
-          "form": "celebrated",
-          "label": "past participle"
-        },
-        {
-          "form": "celebrating",
-          "label": "present participle"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "honoured",
-          "zh": "受敬仰"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "ignored",
-          "zh": "被忽略"
-        }
-      ],
-      "related": [
-        {
-          "word": "festival",
-          "zh": "節日"
-        }
-      ],
-      "example": "The birthday was celebrated with a big cake.",
-      "exampleZh": "生日以大蛋糕來慶祝。"
-    }
-  },
-  {
     "en": "conservation",
     "zh": "保護",
     "emoji": "🌿",

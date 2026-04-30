@@ -658,52 +658,6 @@
     }
   },
   {
-    "en": "brave",
-    "zh": "勇敢",
-    "emoji": "💪",
-    "details": {
-      "partOfSpeech": "adjective",
-      "forms": [
-        {
-          "form": "braver",
-          "label": "comparative"
-        },
-        {
-          "form": "bravest",
-          "label": "superlative"
-        }
-      ],
-      "synonyms": [
-        {
-          "word": "courageous",
-          "zh": "勇敢的"
-        },
-        {
-          "word": "fearless",
-          "zh": "無所畏懼的"
-        }
-      ],
-      "antonyms": [
-        {
-          "word": "cowardly",
-          "zh": "懦弱的"
-        },
-        {
-          "word": "timid",
-          "zh": "害羞的"
-        }
-      ],
-      "related": [
-        {
-          "word": "hero",
-          "zh": "英雄"
-        }
-      ],
-      "example": "He is a brave boy",
-      "exampleZh": "他是一個勇敢的男孩"
-    }
-  },
-  {
     "en": "honeymoon",
     "zh": "蜜月",
     "emoji": "💏",

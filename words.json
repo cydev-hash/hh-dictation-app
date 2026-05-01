@@ -93,5 +93,10 @@
     "en": "damaged",
     "zh": "受損",
     "emoji": "🚧"
+  },
+  {
+    "en": "Destroyed",
+    "zh": "被毀壞",
+    "emoji": "💥"
   }
 ]
